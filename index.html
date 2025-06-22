@@ -3,150 +3,156 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarifs PEB - Simon Deglin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f9fd;
-            color: #000;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 20px;
+            background-color: #f2f6fa;
+            font-size: 16px;
+            color: #000;
         }
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            max-width: 800px;
+            background-color: white;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
-        .logos {
+        .header-logos {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
-        .logos img {
-            max-height: 70px;
-            margin: 0 10px;
-            vertical-align: middle;
+        .header-logos img {
+            height: 60px;
+            margin: 0 8px;
         }
         h1 {
+            color: #007BDB;
             text-align: center;
-            color: #0073e6;
-            margin-bottom: 5px;
+            margin: 10px 0 5px;
         }
         h2 {
             text-align: center;
             font-weight: normal;
             font-style: italic;
-            font-size: 1em;
-            color: #444;
             margin-top: 0;
         }
-        .info {
-            margin: 20px 0;
-            font-size: 16px;
-            line-height: 1.6;
+        .info-block {
+            margin-bottom: 15px;
         }
-        .info b {
-            color: #000;
-        }
-        hr {
-            border: none;
-            border-top: 1px solid #ccc;
-            margin: 30px 0 20px;
+        .info-block strong {
+            display: inline-block;
+            width: 160px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 25px;
+            margin-top: 20px;
             font-size: 16px;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 12px;
-            text-align: left;
         }
         th {
-            background-color: #dbeeff;
+            background-color: #d5e8ff;
+            text-align: left;
+            padding: 10px;
         }
-        .notes {
-            background-color: #eaf4ff;
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .separator {
+            margin: 20px 0;
+            border-top: 1px solid #ccc;
+        }
+        .info-box {
+            background-color: #e6f1ff;
             padding: 20px;
-            border-left: 4px solid #0073e6;
-            font-size: 16px;
-            line-height: 1.6;
+            border-left: 5px solid #3399ff;
+            margin-top: 25px;
         }
-        .notes span {
+        .info-box p {
+            margin: 8px 0;
+        }
+        .highlight {
             color: green;
             font-weight: bold;
         }
-        footer {
+        .footer {
             text-align: center;
-            margin-top: 25px;
             font-style: italic;
-            font-size: 0.9em;
-            color: #555;
+            margin-top: 25px;
         }
-        @media (max-width: 600px) {
-            .logos img {
-                max-height: 50px;
+
+        @media screen and (max-width: 600px) {
+            body {
+                font-size: 16px;
             }
-            body, .info, table, .notes {
-                font-size: 15px;
+            .info-block strong {
+                display: block;
+                width: auto;
+            }
+            table, thead, tbody, th, td, tr {
+                font-size: 16px;
+            }
+            .header-logos img {
+                height: 50px;
+                margin: 4px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logos">
+        <div class="header-logos">
             <img src="logo-peb.png" alt="Logo PEB">
-            <img src="logo-wallonie-energie-spw.png" alt="Logo SPW Énergie">
+            <img src="logo-wallonie-energie-spw.png" alt="Logo Wallonie Énergie">
         </div>
-
         <h1>Simon Deglin</h1>
         <h2>Ingénieur Industriel – Géomètre – Certificateur PEB</h2>
 
-        <div class="info">
-            <b>TVA :</b> BE1015.585.347<br>
-            <b>PEB – N° d’agrément :</b> CERTIF-P2-02931<br>
-            <b>Tél :</b> <a href="tel:+32479075290">+32 (0) 479/07.52.90</a><br>
-            <b>Email :</b> <a href="mailto:simon.deglin@outlook.com">simon.deglin@outlook.com</a><br>
-            <b>Adresse :</b> Rue Sohet 3, 4000 LIÈGE<br>
-            <b>N° de compte :</b> BE63 1030 9963 2408
+        <div class="info-block">
+            <p><strong>TVA :</strong> BE1015.585.347</p>
+            <p><strong>PEB – N° d’agrément :</strong> CERTIF-P2-02931</p>
+            <p><strong>Tél :</strong> <a href="tel:+32479075290">+32 (0) 479/07.52.90</a></p>
+            <p><strong>Email :</strong> <a href="mailto:simon.deglin@outlook.com">simon.deglin@outlook.com</a></p>
+            <p><strong>Adresse :</strong> Rue Sohet 3, 4000 LIÈGE</p>
+            <p><strong>N° de compte :</strong> BE63 1030 9963 2408</p>
         </div>
 
-        <hr>
+        <div class="separator"></div>
 
         <table>
-            <tr>
-                <th>Type de logement</th>
-                <th>Tarif (TVAC)</th>
-            </tr>
-            <tr><td>Appartement ≤ 60 m²</td><td>180 €</td></tr>
-            <tr><td>Appartement de 60 m² à 120 m²</td><td>240 €</td></tr>
-            <tr><td>Maison ≤ 175 m²</td><td>270 €</td></tr>
-            <tr><td>Maison de 175 m² à 250 m²</td><td>330 €</td></tr>
-            <tr><td>Autres demandes</td><td><em>Prix sur devis</em></td></tr>
+            <thead>
+                <tr>
+                    <th>Type de logement</th>
+                    <th>Tarif (TVAC)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Appartement ≤ 60 m²</td><td>180 €</td></tr>
+                <tr><td>Appartement de 60 m² à 120 m²</td><td>240 €</td></tr>
+                <tr><td>Maison ≤ 175 m²</td><td>270 €</td></tr>
+                <tr><td>Maison de 175 m² à 250 m²</td><td>330 €</td></tr>
+                <tr><td>Autres demandes</td><td><em>Prix sur devis</em></td></tr>
+            </tbody>
         </table>
 
-        <div class="notes">
-            <p><span>✔ Prise de rendez-vous :</span><br>
+        <div class="info-box">
+            <p><span class="highlight">✔ Prise de rendez-vous :</span><br>
             - Par mail<br>
             - Par téléphone suivant les horaires suivants : à partir de 17h00 et le week-end.</p>
 
-            <p><span>✔ Organisation de la visite :</span><br>
+            <p><span class="highlight">✔ Organisation de la visite :</span><br>
             Dans les 48h de la prise de rendez-vous.</p>
 
-            <p><span>✔ Remise du rapport :</span><br>
+            <p><span class="highlight">✔ Remise du rapport :</span><br>
             Dans les 48h après la visite.</p>
         </div>
 
-        <footer>
-            Simon Deglin – 2025
-        </footer>
+        <div class="footer">Simon Deglin – 2025</div>
     </div>
 </body>
 </html>
