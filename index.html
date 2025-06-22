@@ -1,136 +1,130 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Tarifs PEB 2025 – Simon Deglin</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarifs PEB - Simon Deglin</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
       margin: 0;
-      padding: 20px;
-      line-height: 1.6;
+      padding: 0;
+      color: #333;
     }
 
-    .container {
-      max-width: 700px;
-      margin: auto;
-      background-color: #fff;
-      padding: 30px 40px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
+    header {
+      text-align: center;
+      padding: 20px 10px 0;
     }
 
-    .header {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 25px;
-    }
-
-    .header img {
-      max-width: 300px;
+    header img {
+      max-width: 150px;
       height: auto;
+      margin-bottom: 10px;
     }
 
     h1 {
-      color: #005c99;
-      font-size: 24px;
-      margin-bottom: 20px;
-      text-align: center;
+      margin: 0;
+      font-size: 1.8em;
+      color: #04528d;
     }
 
-    .info p {
-      margin: 6px 0;
+    h2 {
+      font-size: 1.4em;
+      color: #04528d;
     }
 
-    table {
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .contact-info, .tarifs, .rdv {
+      background-color: white;
+      margin: 20px 0;
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .tarifs table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 15px;
     }
 
-    th, td {
+    .tarifs th, .tarifs td {
       border: 1px solid #ccc;
-      padding: 10px 12px;
+      padding: 8px;
       text-align: left;
     }
 
-    th {
-      background-color: #e8f1f8;
-      font-weight: bold;
+    .tarifs th {
+      background-color: #e5f0fb;
     }
 
     .footer {
-      font-size: 0.9em;
-      color: #777;
-      margin-top: 30px;
       text-align: center;
+      font-size: 0.9em;
+      padding: 10px;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 16px;
+      }
+
+      header img {
+        max-width: 80%;
+      }
+
+      .container {
+        padding: 10px;
+      }
     }
   </style>
 </head>
-<body style="background-color: #f0f7fc;">
+<body>
+  <header>
+    <img src="logo-peb.png" alt="Logo PEB" />
+    <h1>Simon Deglin</h1>
+    <p><em>Ingénieur Industriel – Géomètre – Certificateur PEB</em></p>
+  </header>
+
   <div class="container">
-    <div class="header">
-      <img src="logo-peb.png" alt="Certificat PEB">
+    <div class="contact-info">
+      <p><strong>TVA :</strong> BE1015.585.347</p>
+      <p><strong>PEB – N° d’agrément :</strong> CERTIF-P2-02931</p>
+      <p><strong>Tél :</strong> +32 (0) 479/07.52.90</p>
+      <p><strong>Email :</strong> simon.deglin@outlook.com</p>
+      <p><strong>Adresse :</strong> Rue Sohet 3, 4000 LIÈGE</p>
+      <p><strong>N° de compte :</strong> BE63 1030 9963 2408</p>
     </div>
 
-    <h1 style="color: #005c99; font-size: 28px; margin: 0;">Simon Deglin</h1>
-
-    <div class="info" style="margin-bottom: 20px;">
-      
-      <p style="text-align: center; font-style: italic; margin-top: 0;">Ingénieur Industriel – Géomètre – Certificateur PEB</p>
-      <p style="margin: 4px 0;">TVA : <strong>BE1015.585.347</strong></p>
-      <p style="margin: 4px 0;">PEB – N° d'agrément : <strong>CERTIF-P2-02931</strong></p>
-      <p style="margin: 4px 0;">Tél : <strong>+32 (0) 479/07.52.90</strong><br>Email : <strong>simon.deglin@outlook.com</strong></p>
-      <p style="margin: 4px 0;">Adresse : <strong>Rue Sohet 3, 4000 LIÈGE</strong></p>
-      <p style="margin: 4px 0;">N° de compte : <strong>BE63 1030 9963 2408</strong></p>
+    <div class="tarifs">
+      <h2>Tarifs</h2>
+      <table>
+        <tr><th>Type de logement</th><th>Tarif (TVAC)</th></tr>
+        <tr><td>Appartement ≤ 60 m²</td><td>180 €</td></tr>
+        <tr><td>Appartement de 60 à 120 m²</td><td>240 €</td></tr>
+        <tr><td>Maison ≤ 175 m²</td><td>270 €</td></tr>
+        <tr><td>Maison de 175 à 250 m²</td><td>330 €</td></tr>
+        <tr><td><strong>Autres demandes</strong></td><td><em>Prix sur devis</em></td></tr>
+      </table>
     </div>
 
-    <table>
-      <tr>
-        <th>Type de logement</th>
-        <th>Tarif (TVAC)</th>
-      </tr>
-      <tr>
-        <td>Appartement ≤ 60 m²</td>
-        <td>180 €</td>
-      </tr>
-      <tr>
-        <td>Appartement de 60 à 120 m²</td>
-        <td>240 €</td>
-      </tr>
-      <tr>
-        <td>Maison ≤ 175 m²</td>
-        <td>270 €</td>
-      </tr>
-      <tr>
-        <td>Maison de 175 à 250 m²</td>
-        <td>330 €</td>
-      </tr>
-      <tr>
-        <td><strong>Autres demandes</strong></td>
-        <td><em>Prix sur devis</em></td>
-      </tr>
-    
-    
-    
-    </table>
-
-    <div style="margin-top: 20px; font-size: 1em;">
-      <p>✔️ Prise de rendez-vous :<br>– Par mail<br>– Par téléphone suivant les horaires suivants : avant 9h, de 12h20 à 13h, après 17h ou le week-end.</p>
-      <p>✔️ Organisation de la visite dans les 48h de votre appel.<br>
-      ✔️ Remise du rapport dans les 48h après la visite.</p>
-    </div>
-
-
-
-
-    <div class="footer">
-      © Simon Deglin – 2025
+    <div class="rdv">
+      <h2>Prise de rendez-vous</h2>
+      <ul>
+        <li>Par mail ou par téléphone (avant 9h, de 12h20 à 13h, après 17h ou le week-end)</li>
+        <li>Organisation de la visite dans les 48h après votre appel</li>
+        <li>Remise du rapport dans les 48h après la visite</li>
+      </ul>
     </div>
   </div>
+
+  <div class="footer">© Simon Deglin – 2025</div>
 </body>
 </html>
