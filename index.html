@@ -13,7 +13,7 @@
     }
     body {
       font-family: 'Roboto', sans-serif;
-      font-size: 13px;
+      font-size: 14px;
       background: #f2f6fb;
       padding: 20px;
       color: #000;
@@ -36,13 +36,13 @@
       gap: 20px;
     }
     .logos img {
-      height: 90px;
-      max-width: none;
+      height: 60px;
+      max-width: 150px;
       object-fit: contain;
     }
     h1 {
       text-align: center;
-      font-size: 26px;
+      font-size: 24px;
       color: #007bff;
       margin-bottom: 5px;
     }
@@ -50,10 +50,14 @@
       text-align: center;
       font-style: italic;
       margin-bottom: 20px;
-      font-size: 13px;
+      font-size: 14px;
+    }
+    .line {
+      border-bottom: 1px solid #ccc;
+      margin: 20px 0;
     }
     .infos {
-      font-size: 13px;
+      font-size: 14px;
       margin-bottom: 20px;
       display: flex;
       justify-content: space-between;
@@ -68,14 +72,17 @@
     .infos b {
       font-weight: 700;
     }
-    .line {
-      border-bottom: 1px solid #ccc;
-      margin: 20px 0;
+    a[href^="tel:"], a[href^="mailto:"] {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    a[href^="tel:"]:hover, a[href^="mailto:"]:hover {
+      color: #007bff;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 13px;
+      font-size: 14px;
       margin-bottom: 30px;
     }
     th {
@@ -91,7 +98,7 @@
       background: #eaf4ff;
       padding: 15px;
       border-left: 4px solid #3399ff;
-      font-size: 13px;
+      font-size: 14px;
       margin-bottom: 20px;
     }
     .note p {
@@ -110,13 +117,13 @@
     }
     .zone-couverture input {
       padding: 6px;
-      font-size: 13px;
+      font-size: 14px;
       margin-left: 10px;
     }
     .zone-couverture button {
       padding: 6px 12px;
       margin-left: 5px;
-      font-size: 13px;
+      font-size: 14px;
       cursor: pointer;
       background-color: #007bff;
       border: none;
@@ -154,9 +161,11 @@
 
     <div class="infos">
       <div class="infos-col">
-        <p><b>Tél :</b> <a href="tel:+32479075290" style="text-decoration: underline;">+32 (0) 479/07.52.90</a></p>
-        <p><b>Email :</b> <a href="mailto:simon.deglin@outlook.com" style="text-decoration: underline;">simon.deglin@outlook.com</a></p>
+        <p><b>📞</b> <a href="tel:+32479075290">+32 (0) 479/07.52.90</a></p>
+        <p><b>✉️</b> <a href="mailto:simon.deglin@outlook.com">simon.deglin@outlook.com</a></p>
         <p><b>N° de compte :</b> BE63 1030 9963 2408</p>
+      </div>
+      <div class="infos-col">
         <p><b>N° d’agrément :</b> CERTIF-P2-02931</p>
         <p><b>TVA :</b> BE1015.585.347</p>
       </div>
@@ -169,23 +178,23 @@
         <th>Type de logement</th>
         <th>Tarif (TVAC)</th>
       </tr>
-      <tr><td>Appartement ≤ 60 m²</td><td>170 €</td></tr>
-      <tr><td>Appartement de 60 m² à 120 m²</td><td>220 €</td></tr>
+      <tr><td>Appartement ≤ 60 m²</td><td>180 €</td></tr>
+      <tr><td>Appartement de 60 m² à 120 m²</td><td>240 €</td></tr>
       <tr><td>Maison ≤ 175 m²</td><td>270 €</td></tr>
-      <tr><td>Maison de 175 m² à 250 m²</td><td>320 €</td></tr>
+      <tr><td>Maison de 175 m² à 250 m²</td><td>330 €</td></tr>
       <tr><td>Autres demandes</td><td><em>Prix sur devis</em></td></tr>
     </table>
 
     <div class="note">
       <p><b>✓ Prise de rendez-vous :</b><br>
       - Par mail<br>
-      - Par téléphone : à partir de 17h00 et le week-end.</p>
+      - Par téléphone suivant les horaires suivants : à partir de 17h00 et le week-end.</p>
 
       <p><b>✓ Organisation de la visite :</b><br>
-      Dans les 48h de la prise de rendez-vous.</p>
+      DANS LES 48H de la prise de rendez-vous.</p>
 
       <p><b>✓ Remise du rapport :</b><br>
-      Dans les 48h après la visite.</p>
+      DANS LES 48H après la visite.</p>
 
       <div class="zone-couverture">
         <p style="display: inline;">Le certificateur agit-il dans votre commune ?</p>
@@ -229,7 +238,7 @@
           resultat.innerHTML = '✅ <span style="color:green">Oui</span>, n\'hésitez pas à prendre rendez-vous !';
           resultat.style.color = 'black';
         } else {
-          resultat.innerHTML = '❌ <span style="color:red">Non</span>, merci de vérifier l\'orthographe et/ou de contacter le certificateur en cas de doute.';
+          resultat.innerHTML = '❌ <span style="color:red">Non</span>, merci de vérifier l\'orthographe ou contactez le certificateur si doute.';
           resultat.style.color = 'black';
         }
       }, 300);
