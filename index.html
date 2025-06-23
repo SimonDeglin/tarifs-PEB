@@ -19,7 +19,7 @@
       color: #000;
     }
     .container {
-      max-width: 850px;
+      max-width: 820px;
       margin: auto;
       background: white;
       padding: 20px;
@@ -36,8 +36,8 @@
       gap: 20px;
     }
     .logos img {
-      height: 60px;
-      max-width: 150px;
+      height: 100px;
+      max-width: none;
       object-fit: contain;
     }
     h1 {
@@ -106,11 +106,12 @@
     .zone-couverture p {
       font-weight: bold;
       margin-bottom: 8px;
+      display: inline-block;
     }
     .zone-couverture input {
       padding: 6px;
       font-size: 14px;
-      margin-top: 10px;
+      margin-left: 10px;
     }
     .zone-couverture button {
       padding: 6px 12px;
@@ -156,8 +157,6 @@
         <p><b>Tél :</b> <a href="tel:+32479075290" style="text-decoration: underline;">+32 (0) 479/07.52.90</a></p>
         <p><b>Email :</b> <a href="mailto:simon.deglin@outlook.com" style="text-decoration: underline;">simon.deglin@outlook.com</a></p>
         <p><b>N° de compte :</b> BE63 1030 9963 2408</p>
-      </div>
-      <div class="infos-col">
         <p><b>N° d’agrément :</b> CERTIF-P2-02931</p>
         <p><b>TVA :</b> BE1015.585.347</p>
       </div>
@@ -183,13 +182,13 @@
       - Par téléphone suivant les horaires suivants : à partir de 17h00 et le week-end.</p>
 
       <p><b>✓ Organisation de la visite :</b><br>
-      DANS LES 48H de la prise de rendez-vous.</p>
+      Dans les 48h de la prise de rendez-vous.</p>
 
       <p><b>✓ Remise du rapport :</b><br>
-      DANS LES 48H après la visite.</p>
+      Dans les 48h après la visite.</p>
 
       <div class="zone-couverture">
-        <p>Le certificateur agit-il dans votre commune ?</p>
+        <p style="display: inline;">Le certificateur agit-il dans votre commune ?</p>
         <input list="communes" id="commune" placeholder="Entrez votre commune">
         <datalist id="communes"></datalist>
         <button onclick="verifierCommune()">Vérifier</button>
