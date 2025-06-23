@@ -36,7 +36,7 @@
       gap: 20px;
     }
     .logos img {
-      height: 100px;
+      height: 90px;
       max-width: none;
       object-fit: contain;
     }
@@ -169,17 +169,17 @@
         <th>Type de logement</th>
         <th>Tarif (TVAC)</th>
       </tr>
-      <tr><td>Appartement ≤ 60 m²</td><td>175 €</td></tr>
-      <tr><td>Appartement de 60 m² à 120 m²</td><td>225 €</td></tr>
-      <tr><td>Maison ≤ 175 m²</td><td>275 €</td></tr>
-      <tr><td>Maison de 175 m² à 250 m²</td><td>325 €</td></tr>
+      <tr><td>Appartement ≤ 60 m²</td><td>170 €</td></tr>
+      <tr><td>Appartement de 60 m² à 120 m²</td><td>220 €</td></tr>
+      <tr><td>Maison ≤ 175 m²</td><td>270 €</td></tr>
+      <tr><td>Maison de 175 m² à 250 m²</td><td>320 €</td></tr>
       <tr><td>Autres demandes</td><td><em>Prix sur devis</em></td></tr>
     </table>
 
     <div class="note">
       <p><b>✓ Prise de rendez-vous :</b><br>
       - Par mail<br>
-      - Par téléphone suivant les horaires suivants : à partir de 17h00 et le week-end.</p>
+      - Par téléphone : à partir de 17h00 et le week-end.</p>
 
       <p><b>✓ Organisation de la visite :</b><br>
       Dans les 48h de la prise de rendez-vous.</p>
@@ -216,18 +216,31 @@
     }
 
     function verifierCommune() {
-      const input = normaliserTexte(document.getElementById('commune').value);
+      const inputElement = document.getElementById('commune');
       const resultat = document.getElementById('resultat');
+      const input = normaliserTexte(inputElement.value);
       const normalisees = communesVertes.map(normaliserTexte);
 
-      if (normalisees.includes(input)) {
-        resultat.innerHTML = '✅ <span style="color:green">Oui</span>, n\'hésitez pas à prendre rendez-vous !';
-        resultat.style.color = 'black';
-      } else {
-        resultat.innerHTML = '❌ <span style="color:red">Non</span>, merci de vérifier l\'orthographe ou contactez le certificateur si doute.';
-        resultat.style.color = 'black';
-      }
+      resultat.innerHTML = '🔄 Vérification en cours...';
+      resultat.style.color = 'gray';
+
+      setTimeout(() => {
+        if (normalisees.includes(input)) {
+          resultat.innerHTML = '✅ <span style="color:green">Oui</span>, n\'hésitez pas à prendre rendez-vous !';
+          resultat.style.color = 'black';
+        } else {
+          resultat.innerHTML = '❌ <span style="color:red">Non</span>, merci de vérifier l\'orthographe et/ou de contacter le certificateur en cas de doute.';
+          resultat.style.color = 'black';
+        }
+      }, 300);
     }
+
+    document.getElementById("commune").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        verifierCommune();
+      }
+    });
   </script>
 </body>
 </html>
