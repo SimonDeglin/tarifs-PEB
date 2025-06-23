@@ -1,195 +1,226 @@
-
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Simon Deglin – Certificats PEB</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet"/>
-<style>
-        .body-text {
-            font-size: 16px;
-            font-family: Arial, sans-serif;
-        }
-        a.tel-link, a.mail-link {
-            text-decoration: underline;
-            color: #007BFF;
-        }
-        
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simon Deglin - Tarifs PEB</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: 'Roboto', sans-serif;
-      font-size: 16px;
-      background: #f5f8fc;
-      color: #000;
+      font-size: 14px;
+      background: #f2f6fb;
       padding: 20px;
+      color: #000;
     }
-
     .container {
-      max-width: 800px;
-      background: white;
+      max-width: 850px;
       margin: auto;
-      padding: 30px;
+      background: white;
+      padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-
-    .header-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 15px;
+    .top-row {
+      text-align: center;
+      margin-bottom: 10px;
     }
-
-    .header-logos img {
-      height: 60px;
-      max-width: 100%;
+    .logos {
+      display: inline-flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .logos img {
+      height: 85px;
+      max-width: none;
       object-fit: contain;
     }
-
     h1 {
-      color: #007bff;
       text-align: center;
+      font-size: 24px;
+      color: #007bff;
       margin-bottom: 5px;
-      font-size: 22px;
     }
-
-    h2 {
+    .subtitle {
       text-align: center;
       font-style: italic;
-      font-weight: normal;
-      font-size: 18px;
-      margin-bottom: 25px;
-    }
-
-    .info-block {
-      line-height: 1.6;
       margin-bottom: 20px;
     }
-
-    .info-block strong {
-      font-weight: bold;
+    .infos {
+      font-size: 14px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
-
-    .info-block a {
-      color: #007bff;
-      text-decoration: none;
+    .infos-col {
+      width: 48%;
     }
-
-    .separator {
-      border-top: 1px solid #ccc;
-      margin: 25px 0;
+    .infos p {
+      margin-bottom: 4px;
     }
-
+    .infos b {
+      font-weight: 700;
+    }
+    .line {
+      border-bottom: 1px solid #ccc;
+      margin: 20px 0;
+    }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 20px;
+      font-size: 14px;
+      margin-bottom: 30px;
     }
-
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-    }
-
     th {
-      background-color: #e3f1ff;
+      background-color: #d4e7fb;
+      padding: 10px;
       text-align: left;
     }
-
-    .info-box {
-      background-color: #eaf3fc;
+    td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    .note {
+      background: #eaf4ff;
       padding: 15px;
-      border-left: 4px solid #007bff;
-      border-radius: 4px;
-      margin-bottom: 25px;
-      line-height: 1.6;
+      border-left: 4px solid #3399ff;
+      font-size: 14px;
+      margin-bottom: 20px;
     }
-
-    .info-box p {
-      margin-bottom: 10px;
+    .note p {
+      margin-bottom: 8px;
     }
-
-    .info-box strong {
+    .note b {
       color: green;
     }
-
-    .footer {
+    .zone-couverture {
+      margin-top: 20px;
+    }
+    .zone-couverture p {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .zone-couverture input {
+      padding: 6px;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    .zone-couverture button {
+      padding: 6px 12px;
+      margin-left: 5px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .zone-couverture .resultat {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    footer {
       text-align: center;
       font-style: italic;
-      font-size: 14px;
+      margin-top: 30px;
       color: #666;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        font-size: 16px;
-      }
-
-      h1 {
-        font-size: 20px;
-      }
-
-      h2 {
-        font-size: 17px;
-      }
-
-      .header-logos img {
-        height: 50px;
-      }
     }
   </style>
 </head>
 <body>
-<div class="container">
-<div class="header-logos">
-<img alt="Logo PEB" src="logo-peb.png"/>
-<img alt="Logo Wallonie Energie" src="logo-wallonie-energie-spw.png"/>
-</div>
-<h1>Simon Deglin</h1>
-<h2>Ingénieur Industriel – Géomètre – Certificateur PEB</h2>
-<div class="info-block">
-<p><span class="body-text"><strong>TVA :</strong> BE1015.585.347</span></p>
-<p><span class="body-text"><strong> N° d’agrément :</strong> CERTIF-P2-02931</span></p>
-<p><span class="body-text"><strong>Tél :</strong> <a class="tel-link" href="tel:+32479075290" style="text-decoration: underline;">+32 (0) 479/07.52.90</a></span></p>
-<p><span class="body-text"><strong>Email :</strong> <a class="mail-link" href="mailto:simon.deglin@outlook.com" style="text-decoration: underline;">simon.deglin@outlook.com</a></span></p>
-<p><span class="body-text"><strong>Adresse :</strong> Rue Sohet 3, 4000 LIÈGE</span></p>
-<p><span class="body-text"><strong>N° de compte :</strong> BE63 1030 9963 2408</span></p>
-</div>
-<div class="separator"></div>
-<table>
-<thead>
-<tr>
-<th>Type de logement</th>
-<th>Tarif (TVAC)</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>Appartement ≤ 60 m²</td><td>180 €</td></tr>
-<tr><td>Appartement de 60 m² à 120 m²</td><td>240 €</td></tr>
-<tr><td>Maison ≤ 175 m²</td><td>270 €</td></tr>
-<tr><td>Maison de 175 m² à 250 m²</td><td>330 €</td></tr>
-<tr><td>Autres demandes</td><td><em>Prix sur devis</em></td></tr>
-</tbody>
-</table>
-<div class="info-box">
-<p><span class="body-text"><strong>✔ Prise de rendez-vous :</strong><br/>
-      - Par mail<br/>
-      - Par téléphone : à partir de 17h00 et le week-end.</span></p>
-<p><span class="body-text"><strong>✔ Organisation de la visite :</strong><br/>
-      Dans les 48h de la prise de rendez-vous.</span></p>
-<p><span class="body-text"><strong>✔ Remise du rapport :</strong><br/>
-      Dans les 48h après la visite.</span></p>
-</div>
-<div class="footer">Simon Deglin – 2025</div>
-</div>
+  <div class="container">
+    <div class="top-row">
+      <div class="logos">
+        <img src="logo-peb.png" alt="Logo PEB">
+        <img src="logo-wallonie-energie-spw.png" alt="Logo SPW">
+      </div>
+    </div>
+
+    <h1>Simon Deglin</h1>
+    <div class="subtitle">Ingénieur Industriel – Géomètre – Certificateur PEB</div>
+
+    <div class="line"></div>
+
+    <div class="infos">
+      <div class="infos-col">
+        <p><b>Tél :</b> <a href="tel:+32479075290" style="text-decoration: underline;">+32 (0) 479/07.52.90</a></p>
+        <p><b>Email :</b> <a href="mailto:simon.deglin@outlook.com" style="text-decoration: underline;">simon.deglin@outlook.com</a></p>
+        <p><b>N° de compte :</b> BE63 1030 9963 2408</p>
+      </div>
+      <div class="infos-col">
+        <p><b>N° d’agrément :</b> CERTIF-P2-02931</p>
+        <p><b>TVA :</b> BE1015.585.347</p>
+      </div>
+    </div>
+
+    <div class="line"></div>
+
+    <table>
+      <tr>
+        <th>Type de logement</th>
+        <th>Tarif (TVAC)</th>
+      </tr>
+      <tr><td>Appartement ≤ 60 m²</td><td>180 €</td></tr>
+      <tr><td>Appartement de 60 m² à 120 m²</td><td>240 €</td></tr>
+      <tr><td>Maison ≤ 175 m²</td><td>270 €</td></tr>
+      <tr><td>Maison de 175 m² à 250 m²</td><td>330 €</td></tr>
+      <tr><td>Autres demandes</td><td><em>Prix sur devis</em></td></tr>
+    </table>
+
+    <div class="note">
+      <p><b>✓ Prise de rendez-vous :</b><br>
+      - Par mail<br>
+      - Par téléphone suivant les horaires suivants : à partir de 17h00 et le week-end.</p>
+
+      <p><b>✓ Organisation de la visite :</b><br>
+      Dans les 48h de la prise de rendez-vous.</p>
+
+      <p><b>✓ Remise du rapport :</b><br>
+      Dans les 48h après la visite.</p>
+
+      <div class="zone-couverture">
+        <p>Le certificateur agit-il dans votre commune ?</p>
+        <input list="communes" id="commune" placeholder="Entrez votre commune">
+        <datalist id="communes"></datalist>
+        <button onclick="verifierCommune()">Vérifier</button>
+        <div id="resultat" class="resultat"></div>
+      </div>
+    </div>
+
+    <footer>
+      Simon Deglin – 2025
+    </footer>
+  </div>
+
+  <script>
+    const communesVertes = ["Ans", "Awans", "Bassenge", "Berloz", "Beyne", "Blégny", "Braives", "Burdinne", "Chaudfontaine", "Crisnée", "Dalhem", "Donceel", "Engis", "Esneux", "Faimes", "Fexhe", "Flémalle", "Fléron", "Geer", "Grâce-Hollogne", "Hannut", "Héron", "Herstal", "Huy", "Juprelle", "Liège", "Lincent", "Nandrin", "Neupré", "Olne", "Oreye", "Oupeye", "Remicourt", "Saint-Georges", "Saint-Nicolas", "Seraing", "Soumagne", "Trooz", "Verlaine", "Villers-le-Bouillet", "Visé", "Wanze", "Waremme", "Wasseiges"];
+
+    const datalist = document.getElementById("communes");
+    communesVertes.forEach(c => {
+      const option = document.createElement("option");
+      option.value = c;
+      datalist.appendChild(option);
+    });
+
+    function normaliserTexte(texte) {
+      return texte.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
+    }
+
+    function verifierCommune() {
+      const input = normaliserTexte(document.getElementById('commune').value);
+      const resultat = document.getElementById('resultat');
+      const normalisees = communesVertes.map(normaliserTexte);
+
+      if (normalisees.includes(input)) {
+        resultat.innerHTML = '✅ <span style="color:green">Oui</span>, n\'hésitez pas à prendre rendez-vous !';
+        resultat.style.color = 'black';
+      } else {
+        resultat.innerHTML = '❌ <span style="color:red">Non</span>, merci de vérifier l\'orthographe ou contactez le certificateur si doute.';
+        resultat.style.color = 'black';
+      }
+    }
+  </script>
 </body>
 </html>
