@@ -15,14 +15,14 @@
       font-family: 'Roboto', sans-serif;
       font-size: 13px;
       background: #f2f6fb;
-      padding: 20px;
+      padding: 15px;
       color: #000;
     }
     .container {
       max-width: 820px;
       margin: auto;
       background: white;
-      padding: 20px;
+      padding: 15px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
@@ -33,7 +33,7 @@
     .logos {
       display: inline-flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
     }
     .logos img {
       height: 100px;
@@ -49,22 +49,22 @@
     .subtitle {
       text-align: center;
       font-style: italic;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       font-size: 13px;
     }
     .line {
       border-bottom: 1px solid #ccc;
-      margin: 20px 0;
+      margin: 15px 0;
     }
     .infos {
       font-size: 13px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
     }
     .infos-col {
-      width: 48%;
+      width: 100%;
     }
     .infos p {
       margin-bottom: 4px;
@@ -99,7 +99,7 @@
       padding: 15px;
       border-left: 4px solid #3399ff;
       font-size: 13px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
     .note p {
       margin-bottom: 8px;
@@ -108,13 +108,13 @@
       color: green;
     }
     .zone-couverture {
-      margin-top: 20px;
+      margin-top: 15px;
     }
-    .zone-couverture p {
-      font-weight: bold;
-      margin-bottom: 8px;
-      display: inline-block;
-    }
+.zone-couverture p {
+  margin-bottom: 8px;
+  color: #000;
+  font-weight: normal;
+}
     .zone-couverture input {
       padding: 6px;
       font-size: 13px;
@@ -186,7 +186,7 @@
     <div class="note">
       <p><b>✓ Prise de rendez-vous :</b><br>
       - Par mail<br>
-      - Par téléphone : à partir de 17h00 et le week-end.</p>
+      - Par téléphone : dès 17h00 et le week-end.</p>
 
       <p><b>✓ Organisation de la visite :</b><br>
       Dans les 48h de la prise de rendez-vous.</p>
@@ -194,60 +194,63 @@
       <p><b>✓ Remise du rapport :</b><br>
       Dans les 48h après la visite.</p>
 
-      <div class="zone-couverture">
-        <p style="display: inline;">Le certificateur agit-il dans votre commune ?</p>
-        <input list="communes" id="commune" placeholder="Entrez votre commune">
-        <datalist id="communes"></datalist>
-        <button onclick="verifierCommune()">Vérifier</button>
-        <div id="resultat" class="resultat"></div>
-      </div>
-    </div>
+<div class="zone-couverture">
+  <p>Le certificateur agit principalement dans les <span style="font-weight: bold;">arrondissements de Liège, de Waremme et de Huy</span>. Vous pouvez vérifier ci-après si votre commune est couverte par le certificateur :</p>
+  <div style="margin-top: 10px;">
+    <label for="commune">Votre commune :</label>
+    <input list="communes" id="commune" placeholder="Entrez votre commune">
+    <datalist id="communes"></datalist>
+    <button onclick="verifierCommune()">Vérifier</button>
+  </div>
+  <div id="resultat" class="resultat"></div>
+</div>
 
     <footer>
       Simon Deglin – 2025
     </footer>
   </div>
 
-  <script>
-    const communesVertes = ["Ans", "Awans", "Bassenge", "Berloz", "Beyne", "Blégny", "Braives", "Burdinne", "Chaudfontaine", "Crisnée", "Dalhem", "Donceel", "Engis", "Esneux", "Faimes", "Fexhe", "Flémalle", "Fléron", "Geer", "Grâce-Hollogne", "Hannut", "Héron", "Herstal", "Huy", "Juprelle", "Liège", "Lincent", "Nandrin", "Neupré", "Olne", "Oreye", "Oupeye", "Remicourt", "Saint-Georges", "Saint-Nicolas", "Seraing", "Soumagne", "Trooz", "Verlaine", "Villers-le-Bouillet", "Visé", "Wanze", "Waremme", "Wasseiges"];
+<script>
+  const communesVertes = ["Ans", "Awans", "Bassenge", "Berloz", "Beyne", "Blégny", "Braives", "Burdinne", "Chaudfontaine", "Crisnée", "Dalhem", "Donceel", "Engis", "Esneux", "Faimes", "Fexhe", "Flémalle", "Fléron", "Geer", "Grâce-Hollogne", "Hannut", "Héron", "Herstal", "Huy", "Juprelle", "Liège", "Lincent", "Nandrin", "Neupré", "Olne", "Oreye", "Oupeye", "Remicourt", "Saint-Georges", "Saint-Nicolas", "Seraing", "Soumagne", "Trooz", "Verlaine", "Villers-le-Bouillet", "Visé", "Wanze", "Waremme", "Wasseiges"];
 
-    const datalist = document.getElementById("communes");
-    communesVertes.forEach(c => {
-      const option = document.createElement("option");
-      option.value = c;
-      datalist.appendChild(option);
-    });
+  const datalist = document.getElementById("communes");
+  communesVertes.forEach(c => {
+    const option = document.createElement("option");
+    option.value = c;
+    datalist.appendChild(option);
+  });
 
-    function normaliserTexte(texte) {
-      return texte.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
-    }
+  function normaliserTexte(texte) {
+    return texte.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
+  }
 
-    function verifierCommune() {
-      const inputElement = document.getElementById('commune');
-      const resultat = document.getElementById('resultat');
-      const input = normaliserTexte(inputElement.value);
-      const normalisees = communesVertes.map(normaliserTexte);
+  function verifierCommune() {
+    const inputElement = document.getElementById('commune');
+    const resultat = document.getElementById('resultat');
+    const input = normaliserTexte(inputElement.value);
+    const normalisees = communesVertes.map(normaliserTexte);
 
-      resultat.innerHTML = '🔄 Vérification en cours...';
-      resultat.style.color = 'gray';
+    resultat.innerHTML = '🔄 Vérification en cours...';
+    resultat.style.color = 'gray';
 
-      setTimeout(() => {
-        if (normalisees.includes(input)) {
-          resultat.innerHTML = '✅ <span style="color:green">Oui</span>, n\'hésitez pas à prendre rendez-vous !';
-          resultat.style.color = 'black';
-        } else {
-          resultat.innerHTML = '❌ <span style="color:red">Non</span>, merci de vérifier l\'orthographe et/ou de contacter le certificateur en cas de doute.';
-          resultat.style.color = 'black';
-        }
-      }, 300);
-    }
-
-    document.getElementById("commune").addEventListener("keypress", function(e) {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        verifierCommune();
+    setTimeout(() => {
+      if (normalisees.includes(input)) {
+        resultat.innerHTML = '✅ <span style="color:green">Oui</span>, n\'hésitez pas à prendre rendez-vous !';
+        resultat.style.color = 'black';
+      } else {
+        resultat.innerHTML = '❌ <span style="color:red">Non</span>, merci de vérifier l\'encodage et/ou de contacter le certificateur en cas de doute.';
+        resultat.style.color = 'black';
       }
-    });
-  </script>
+    }, 300);
+  }
+
+  document.getElementById("commune").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      verifierCommune();
+    }
+  });
+</script>
+
 </body>
 </html>
