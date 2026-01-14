@@ -9,7 +9,6 @@
   <meta name="description" content="Certificateur PEB agréé (CERTIF-P2-02931) – Liège, Waremme et Huy. Rendez-vous rapide. Rapport PEB sous 72h. Tarifs TVAC en ligne.">
   <link rel="canonical" href="https://simondeglin.github.io/tarifs-PEB/">
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
   <!-- Schema.org -->
@@ -22,19 +21,13 @@
     "telephone": "+32479075290",
     "email": "simon.deglin@outlook.com",
     "areaServed": ["Liège", "Waremme", "Huy"],
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "BE"
-    }
+    "address": { "@type": "PostalAddress", "addressCountry": "BE" }
   }
   </script>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'Roboto', sans-serif;
       font-size: 13px;
@@ -42,6 +35,7 @@
       padding: 15px;
       color: #000;
     }
+
     .container {
       max-width: 820px;
       margin: auto;
@@ -50,27 +44,32 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
+
+    /* Palette : bleu pro mais visible */
+    :root{
+      --title-blue: #1b4f8a;  /* bleu marine clair, nettement bleu */
+      --link-blue:  #1b4f8a;
+    }
+
+    /* LOGOS - correction centrage */
     .top-row {
-      text-align: center;
+      width: 100%;
+      display: flex;
+      justify-content: center;
       margin-bottom: 10px;
     }
     .logos {
-      display: inline-flex;
-      justify-content: center;
+      width: 100%;
+      display: flex;               /* plus inline-flex */
+      justify-content: center;     /* centre vraiment */
       align-items: center;
-      gap: 20px;
+      gap: 24px;
     }
     .logos img {
       height: 100px;
       width: auto;
       object-fit: contain;
       display: block;
-    }
-
-    /* Titres : bleu plus sobre (moins "fantaisie") */
-    :root{
-      --title-blue: #1f2a44;   /* bleu très foncé / gris bleuté */
-      --accent-blue: #2a4d7a;  /* bleu pro pour H2 si tu veux */
     }
 
     h1 {
@@ -89,9 +88,7 @@
       line-height: 1.35;
       color: #111;
     }
-    .subtitle div {
-      display: block;
-    }
+    .subtitle div { display: block; }
 
     h2 {
       font-size: 16px;
@@ -109,13 +106,12 @@
       font-size: 13px;
       margin-bottom: 15px;
     }
-    .infos p {
-      margin-bottom: 4px;
-    }
+    .infos p { margin-bottom: 4px; }
+
     a[href^="tel:"], a[href^="mailto:"] {
       text-decoration: underline;
       cursor: pointer;
-      color: inherit;
+      color: var(--link-blue);
     }
 
     table {
@@ -142,9 +138,7 @@
       margin-bottom: 15px;
     }
 
-    .zone-couverture {
-      margin-top: 15px;
-    }
+    .zone-couverture { margin-top: 15px; }
     .zone-couverture input {
       padding: 6px;
       font-size: 13px;
@@ -158,12 +152,22 @@
       color: white;
       border-radius: 4px;
     }
+    .zone-couverture #resultat {
+      margin-top: 10px;
+      font-weight: 600;
+    }
 
     footer {
       text-align: center;
       font-style: italic;
       margin-top: 30px;
       color: #666;
+    }
+
+    /* Petit ajustement mobile */
+    @media (max-width: 520px) {
+      .logos img { height: 70px; }
+      h1 { font-size: 20px; }
     }
   </style>
 </head>
@@ -207,12 +211,27 @@
         <th>Tarif</th>
       </tr>
       <tr><td>Appartement ≤ 60 m²</td><td>175 €</td></tr>
-      <tr><td>Appartement de 60 à 120 m²</td><td>225 €</td></tr>
-      <tr><td>Maison ≤ 150 m²</td><td>280 €</td></tr>
-      <tr><td>Maison de 150 à 250 m²</td><td>330 €</td></tr>
+      <tr><td>Appartement 60 à 120 m²</td><td>225 €</td></tr>
+      <tr><td>Maison ≤ 175 m²</td><td>275 €</td></tr>
+      <tr><td>Maison 175 à 250 m²</td><td>325 €</td></tr>
       <tr><td>Autres demandes</td><td><em>Sur devis</em></td></tr>
     </table>
 
+    <!-- PARTENARIAT CERTINERGIE -->
+<div class="note">
+  <p><b>Partenariat – Contrôle des installations électriques (PV)</b></p>
+  <p>
+    Pour le contrôle de votre installation photovoltaïque (PV),
+    je collabore avec <a href="https://www.certinergie.be/fr/" target="_blank" rel="noopener">Certinergie</a>,
+    organisme agréé en Wallonie.
+  </p>
+  <p>
+    👉 <b>Avantage client :</b> bénéficiez de <b>10 € de réduction</b>
+    en utilisant le code <b>DEGLIN10</b> lors de votre prise de rendez-vous.
+  </p>
+</div>
+
+    
     <!-- NOTE -->
     <div class="note">
       <p><b>Prise de rendez-vous :</b> par téléphone (après 17h et week-end) ou par email.</p>
@@ -222,9 +241,11 @@
     <!-- ZONE -->
     <div class="zone-couverture">
       <p>Intervention principale dans les arrondissements de <b>Liège, Waremme et Huy</b>.</p>
-      <input list="communes" id="commune" placeholder="Votre commune">
-      <datalist id="communes"></datalist>
-      <button onclick="verifierCommune()">Vérifier</button>
+      <div style="margin-top: 8px;">
+        <input list="communes" id="commune" placeholder="Votre commune">
+        <datalist id="communes"></datalist>
+        <button onclick="verifierCommune()">Vérifier</button>
+      </div>
       <div id="resultat"></div>
     </div>
 
@@ -251,21 +272,27 @@
   function verifierCommune() {
     const inputElement = document.getElementById('commune');
     const resultat = document.getElementById('resultat');
-    const input = normaliserTexte(inputElement.value);
+    const input = normaliserTexte(inputElement.value.trim());
     const normalisees = communesVertes.map(normaliserTexte);
 
+    if (!input) {
+      resultat.innerHTML = '➡️ Indiquez votre commune, puis cliquez sur “Vérifier”.';
+      resultat.style.color = '#555';
+      return;
+    }
+
     resultat.innerHTML = '🔄 Vérification en cours...';
-    resultat.style.color = 'gray';
+    resultat.style.color = '#777';
 
     setTimeout(() => {
       if (normalisees.includes(input)) {
-        resultat.innerHTML = '✅ <span style="color:green">Oui</span>, n\'hésitez pas à prendre rendez-vous !';
-        resultat.style.color = 'black';
+        resultat.innerHTML = '✅ <span style="color:green">Zone couverte</span> — contactez-moi pour fixer un rendez-vous.';
+        resultat.style.color = '#111';
       } else {
-        resultat.innerHTML = '❌ <span style="color:red">Non</span>, merci de vérifier l\'encodage et/ou de contacter le certificateur en cas de doute.';
-        resultat.style.color = 'black';
+        resultat.innerHTML = '📍 <span style="color:#b36b00">Zone à confirmer</span> — merci de me contacter pour vérifier la disponibilité et les frais de déplacement.';
+        resultat.style.color = '#111';
       }
-    }, 300);
+    }, 250);
   }
 
   document.getElementById("commune").addEventListener("keypress", function(e) {
