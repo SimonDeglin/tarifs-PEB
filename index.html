@@ -229,8 +229,8 @@
       </tr>
       <tr><td>Appartement ≤ 60 m²</td><td>175 €</td></tr>
       <tr><td>Appartement 60 à 120 m²</td><td>225 €</td></tr>
-      <tr><td>Maison ≤ 175 m²</td><td>275 €</td></tr>
-      <tr><td>Maison 175 à 250 m²</td><td>325 €</td></tr>
+      <tr><td>Maison ≤ 150 m²</td><td>275 €</td></tr>
+      <tr><td>Maison 150 à 250 m²</td><td>325 €</td></tr>
       <tr><td>Autres demandes</td><td><em>Sur devis</em></td></tr>
     </table>
 
@@ -238,11 +238,11 @@
     <div class="note">
       <p><b>Partenariat – Contrôle des installations électriques (PV)</b></p>
       <p>
-        Pour le contrôle de votre installation photovoltaïque (PV), je collabore avec
+        Pour le contrôle de votre installation électrique, je collabore avec
         <a class="external-link" href="https://www.certinergie.be/fr/" target="_blank" rel="noopener">Certinergie</a>.
       </p>
       <p>
-        👉 <b>Avantage client :</b> bénéficiez de <b>10 € de réduction</b> avec le code <b>DEGLIN10</b>.
+        👉 <b>Avantage client :</b> bénéficiez de <b>10 € de réduction</b> avec le code <b>deglin10</b>.
       </p>
     </div>
 
@@ -300,10 +300,10 @@
 
     setTimeout(() => {
       if (normalisees.includes(input)) {
-        resultat.innerHTML = '✅ <span style="color:green">Zone couverte</span> — contactez-moi pour fixer un rendez-vous.';
+        resultat.innerHTML = '✅ <span style="color:green">Zone couverte</span> — Contactez-moi pour fixer un rendez-vous.';
         resultat.style.color = '#111';
       } else {
-        resultat.innerHTML = '📍 <span style="color:#b36b00">Zone à confirmer</span> — merci de me contacter pour vérifier la disponibilité et les frais de déplacement.';
+        resultat.innerHTML = '📍 <span style="color:#b36b00">Zone à confirmer</span> — Merci de me contacter pour vérifier la disponibilité.';
         resultat.style.color = '#111';
       }
     }, 250);
