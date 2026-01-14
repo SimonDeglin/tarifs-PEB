@@ -9,6 +9,7 @@
   <meta name="description" content="Certificateur PEB agréé (CERTIF-P2-02931) – Liège, Waremme et Huy. Rendez-vous rapide. Rapport PEB sous 72h. Tarifs TVAC en ligne.">
   <link rel="canonical" href="https://simondeglin.github.io/tarifs-PEB/">
 
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
   <!-- Schema.org -->
@@ -45,13 +46,13 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
-    /* Palette : bleu pro mais visible */
+    /* Bleu pro (visible mais sobre) */
     :root{
-      --title-blue: #1b4f8a;  /* bleu marine clair, nettement bleu */
+      --title-blue: #1b4f8a;
       --link-blue:  #1b4f8a;
     }
 
-    /* LOGOS - correction centrage */
+    /* LOGOS */
     .top-row {
       width: 100%;
       display: flex;
@@ -60,8 +61,8 @@
     }
     .logos {
       width: 100%;
-      display: flex;               /* plus inline-flex */
-      justify-content: center;     /* centre vraiment */
+      display: flex;
+      justify-content: center;
       align-items: center;
       gap: 24px;
     }
@@ -72,6 +73,7 @@
       display: block;
     }
 
+    /* TITRES */
     h1 {
       text-align: center;
       font-size: 24px;
@@ -102,18 +104,20 @@
       margin: 15px 0;
     }
 
+    /* INFOS */
     .infos {
       font-size: 13px;
       margin-bottom: 15px;
     }
     .infos p { margin-bottom: 4px; }
 
-    a[href^="tel:"], a[href^="mailto:"] {
+    a[href^="tel:"], a[href^="mailto:"], a.external-link {
       text-decoration: underline;
       cursor: pointer;
       color: var(--link-blue);
     }
 
+    /* TABLE */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -130,6 +134,7 @@
       border: 1px solid #ccc;
     }
 
+    /* BLOCS NOTE */
     .note {
       background: #eaf4ff;
       padding: 15px;
@@ -137,11 +142,20 @@
       font-size: 13px;
       margin-bottom: 15px;
     }
+    .note p { margin-bottom: 8px; }
+    .note p:last-child { margin-bottom: 0; }
 
+    .note a {
+      color: var(--title-blue);
+      font-weight: 600;
+    }
+
+    /* ZONE */
     .zone-couverture { margin-top: 15px; }
     .zone-couverture input {
       padding: 6px;
       font-size: 13px;
+      width: 180px;
     }
     .zone-couverture button {
       padding: 6px 12px;
@@ -151,6 +165,7 @@
       border: none;
       color: white;
       border-radius: 4px;
+      margin-left: 6px;
     }
     .zone-couverture #resultat {
       margin-top: 10px;
@@ -164,10 +179,12 @@
       color: #666;
     }
 
-    /* Petit ajustement mobile */
+    /* MOBILE */
     @media (max-width: 520px) {
       .logos img { height: 70px; }
       h1 { font-size: 20px; }
+      .zone-couverture input { width: 100%; margin-bottom: 8px; }
+      .zone-couverture button { margin-left: 0; width: 100%; }
     }
   </style>
 </head>
@@ -218,21 +235,18 @@
     </table>
 
     <!-- PARTENARIAT CERTINERGIE -->
-<div class="note">
-  <p><b>Partenariat – Contrôle des installations électriques (PV)</b></p>
-  <p>
-    Pour le contrôle de votre installation photovoltaïque (PV),
-    je collabore avec <a href="https://www.certinergie.be/fr/" target="_blank" rel="noopener">Certinergie</a>,
-    organisme agréé en Wallonie.
-  </p>
-  <p>
-    👉 <b>Avantage client :</b> bénéficiez de <b>10 € de réduction</b>
-    en utilisant le code <b>DEGLIN10</b> lors de votre prise de rendez-vous.
-  </p>
-</div>
+    <div class="note">
+      <p><b>Partenariat – Contrôle des installations électriques (PV)</b></p>
+      <p>
+        Pour le contrôle de votre installation photovoltaïque (PV), je collabore avec
+        <a class="external-link" href="https://www.certinergie.be/fr/" target="_blank" rel="noopener">Certinergie</a>.
+      </p>
+      <p>
+        👉 <b>Avantage client :</b> bénéficiez de <b>10 € de réduction</b> avec le code <b>DEGLIN10</b>.
+      </p>
+    </div>
 
-    
-    <!-- NOTE -->
+    <!-- INFOS PRATIQUES -->
     <div class="note">
       <p><b>Prise de rendez-vous :</b> par téléphone (après 17h et week-end) ou par email.</p>
       <p><b>Remise du rapport :</b> dans les 72h après la visite.</p>
