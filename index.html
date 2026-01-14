@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <title>Certificateur PEB à Liège, Waremme et Huy | Simon Deglin</title>
-  <meta name="description" content="Certificateur PEB agréé (CERTIF-P2-02931) – Liège, Waremme et Huy. Rendez-vous rapide. Rapport PEB sous 48h. Tarifs TVAC en ligne.">
+  <title>Certificateur PEB agréé | Simon Deglin</title>
+  <meta name="description" content="Certificateur PEB agréé (CERTIF-P2-02931) – Liège, Waremme et Huy. Rendez-vous rapide. Rapport PEB sous 72h. Tarifs TVAC en ligne.">
   <link rel="canonical" href="https://simondeglin.github.io/tarifs-PEB/">
 
   <!-- Google Font -->
@@ -66,27 +66,45 @@
       object-fit: contain;
       display: block;
     }
+
+    /* Titres : bleu plus sobre (moins "fantaisie") */
+    :root{
+      --title-blue: #1f2a44;   /* bleu très foncé / gris bleuté */
+      --accent-blue: #2a4d7a;  /* bleu pro pour H2 si tu veux */
+    }
+
     h1 {
       text-align: center;
       font-size: 24px;
-      color: #007bff;
+      color: var(--title-blue);
       margin-bottom: 5px;
+      font-weight: 700;
     }
+
     .subtitle {
       text-align: center;
       font-style: italic;
       margin-bottom: 15px;
       font-size: 13px;
+      line-height: 1.35;
+      color: #111;
     }
+    .subtitle div {
+      display: block;
+    }
+
     h2 {
       font-size: 16px;
       margin: 15px 0 8px 0;
-      color: #007bff;
+      color: var(--title-blue);
+      font-weight: 700;
     }
+
     .line {
       border-bottom: 1px solid #ccc;
       margin: 15px 0;
     }
+
     .infos {
       font-size: 13px;
       margin-bottom: 15px;
@@ -97,7 +115,9 @@
     a[href^="tel:"], a[href^="mailto:"] {
       text-decoration: underline;
       cursor: pointer;
+      color: inherit;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -113,6 +133,7 @@
       padding: 10px;
       border: 1px solid #ccc;
     }
+
     .note {
       background: #eaf4ff;
       padding: 15px;
@@ -120,6 +141,7 @@
       font-size: 13px;
       margin-bottom: 15px;
     }
+
     .zone-couverture {
       margin-top: 15px;
     }
@@ -136,6 +158,7 @@
       color: white;
       border-radius: 4px;
     }
+
     footer {
       text-align: center;
       font-style: italic;
@@ -158,8 +181,11 @@
     </div>
 
     <!-- TITRE -->
-    <h1>Certificateur PEB à Liège, Waremme et Huy</h1>
-    <div class="subtitle">Simon Deglin – Ingénieur industriel – Géomètre – Certificateur PEB agréé</div>
+    <h1>Certificateur PEB agréé</h1>
+    <div class="subtitle">
+      <div>Simon Deglin - Ingénieur Industriel</div>
+      <div>Géomètre – Certificateur PEB</div>
+    </div>
 
     <div class="line"></div>
 
@@ -181,16 +207,16 @@
         <th>Tarif</th>
       </tr>
       <tr><td>Appartement ≤ 60 m²</td><td>175 €</td></tr>
-      <tr><td>Appartement 60 à 120 m²</td><td>225 €</td></tr>
-      <tr><td>Maison ≤ 175 m²</td><td>275 €</td></tr>
-      <tr><td>Maison 175 à 250 m²</td><td>325 €</td></tr>
+      <tr><td>Appartement de 60 à 120 m²</td><td>225 €</td></tr>
+      <tr><td>Maison ≤ 150 m²</td><td>280 €</td></tr>
+      <tr><td>Maison de 150 à 250 m²</td><td>330 €</td></tr>
       <tr><td>Autres demandes</td><td><em>Sur devis</em></td></tr>
     </table>
 
     <!-- NOTE -->
     <div class="note">
       <p><b>Prise de rendez-vous :</b> par téléphone (après 17h et week-end) ou par email.</p>
-      <p><b>Remise du rapport :</b> dans les 48h après la visite.</p>
+      <p><b>Remise du rapport :</b> dans les 72h après la visite.</p>
     </div>
 
     <!-- ZONE -->
@@ -209,7 +235,8 @@
   </div>
 
 <script>
-  const communesVertes = ["Liège","Waremme","Huy","Seraing","Herstal","Ans","Hannut","Wanze"];
+  const communesVertes = ["Ans", "Awans", "Bassenge", "Berloz", "Beyne", "Blégny", "Braives", "Burdinne", "Chaudfontaine", "Crisnée", "Dalhem", "Donceel", "Engis", "Esneux", "Faimes", "Fexhe", "Flémalle", "Fléron", "Geer", "Grâce-Hollogne", "Hannut", "Héron", "Herstal", "Huy", "Juprelle", "Liège", "Lincent", "Nandrin", "Neupré", "Olne", "Oreye", "Oupeye", "Remicourt", "Saint-Georges", "Saint-Nicolas", "Seraing", "Soumagne", "Trooz", "Verlaine", "Villers-le-Bouillet", "Visé", "Wanze", "Waremme", "Wasseiges"];
+
   const datalist = document.getElementById("communes");
   communesVertes.forEach(c => {
     const option = document.createElement("option");
@@ -217,13 +244,36 @@
     datalist.appendChild(option);
   });
 
-  function verifierCommune() {
-    const c = document.getElementById("commune").value;
-    document.getElementById("resultat").innerHTML =
-      communesVertes.includes(c)
-      ? "✅ Zone couverte – contactez-moi"
-      : "❌ Zone à confirmer – merci de me contacter";
+  function normaliserTexte(texte) {
+    return texte.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
   }
+
+  function verifierCommune() {
+    const inputElement = document.getElementById('commune');
+    const resultat = document.getElementById('resultat');
+    const input = normaliserTexte(inputElement.value);
+    const normalisees = communesVertes.map(normaliserTexte);
+
+    resultat.innerHTML = '🔄 Vérification en cours...';
+    resultat.style.color = 'gray';
+
+    setTimeout(() => {
+      if (normalisees.includes(input)) {
+        resultat.innerHTML = '✅ <span style="color:green">Oui</span>, n\'hésitez pas à prendre rendez-vous !';
+        resultat.style.color = 'black';
+      } else {
+        resultat.innerHTML = '❌ <span style="color:red">Non</span>, merci de vérifier l\'encodage et/ou de contacter le certificateur en cas de doute.';
+        resultat.style.color = 'black';
+      }
+    }, 300);
+  }
+
+  document.getElementById("commune").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      verifierCommune();
+    }
+  });
 </script>
 
 </body>
