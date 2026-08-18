@@ -262,35 +262,9 @@
   <!-- ZONE -->
   <div class="zone-couverture">
     <p>Intervention principale dans les arrondissements de <b>Liège, Waremme et Huy</b>.</p>
-    <input list="communes" id="commune" placeholder="Votre commune">
-    <datalist id="communes"></datalist>
-    <button onclick="verifierCommune()">Vérifier</button>
-    <div id="resultat"></div>
-  </div>
-
-  <footer>Simon Deglin – 2026</footer>
-
 </div>
-
-<script>
-  const communesVertes = ["Liège","Waremme","Huy","Seraing","Herstal","Ans","Hannut","Wanze"];
-  const datalist = document.getElementById("communes");
-  communesVertes.forEach(c => {
-    const option = document.createElement("option");
-    option.value = c;
-    datalist.appendChild(option);
-  });
-
-  function verifierCommune() {
-    const val = document.getElementById("commune").value.trim();
-    const res = document.getElementById("resultat");
-    if (!val) {
-      res.innerHTML = "";
-      return;
-    }
-    res.innerHTML = "📍 Zone à confirmer – Merci de me contacter pour vérifier la disponibilité.";
-  }
-</script>
+  <footer>Simon Deglin – 2026</footer>
+</div>
 
 </body>
 </html>
