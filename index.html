@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Tarifs PEB | Simon Deglin - Hannut</title>
 <meta name="description" content="Tarifs PEB de Simon Deglin, certificateur PEB résidentiel et bâtiments publics agréé en Wallonie, basé à Hannut.">
 <link rel="icon" type="image/png" href="logo-simon-deglin.png">
@@ -15,10 +15,10 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#f2f5f7;-webkit-font-smoothing:antialiased}
+body{margin:0;padding:12px max(12px,env(safe-area-inset-right)) 12px max(12px,env(safe-area-inset-left));font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#f2f5f7;-webkit-font-smoothing:antialiased}
 button,input,textarea{font:inherit}
 a{color:inherit}
-.page{width:min(820px,100%);margin:20px auto;background:#fff;border:1px solid #e3e9ee;box-shadow:0 10px 30px rgba(28,48,65,.06)}
+.page{width:min(820px,100%);margin:8px auto;background:#fff;border:1px solid #e3e9ee;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(28,48,65,.06)}
 .official{height:84px;display:flex;align-items:center;justify-content:center;gap:36px;border-bottom:1px solid var(--line);background:#fff}
 .official img{object-fit:contain;display:block}.official .peb{width:150px;height:62px}.official .spw{width:150px;height:62px}
 .identity{display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:center;padding:16px 22px 15px;border-bottom:1px solid var(--line);background:#fbfcfd}
@@ -51,18 +51,18 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
 .check-option input[type="checkbox"]:focus-visible{outline:0;box-shadow:0 0 0 3px rgba(45,120,180,.16)}
 .check-option span{font-size:10.5px;line-height:1.3;color:#40566a}
 .check-option:has(input:checked){border-color:#91b0c8;background:#f5f9fc;box-shadow:0 0 0 1px rgba(45,120,180,.04)}
-.form-error{display:none;margin-top:1px;font-size:9.5px;color:#9b3e3e}.form-error.visible{display:block}
+.form-error{display:none;margin-top:2px;font-size:9.8px;font-weight:700;color:#b3261e}.form-error.visible{display:block}.check-grid.invalid{padding:5px;border:1.5px solid #c9473f;border-radius:9px;background:#fff7f6}.field input.invalid{border:1.5px solid #c9473f;background:#fff8f7;box-shadow:0 0 0 2px rgba(201,71,63,.08)}.field label.invalid-label,.field-title.invalid-label{color:#b3261e}
 .mail-btn{width:100%;min-height:42px;border:0;border-radius:7px;background:var(--navy);color:#fff;font-size:12px;font-weight:800;cursor:pointer}.mail-note{margin:6px 0 0;text-align:center;font-size:9px;color:#7a8793;line-height:1.4}
 .contactline{display:flex;justify-content:space-between;gap:14px;padding:14px 22px;border-top:1px solid var(--line);background:#fbfcfd;color:#697886;font-size:10px}.contactline a{text-decoration:none;color:#455d71;font-weight:650}.contactline a:hover{text-decoration:underline;text-underline-offset:2px}
 @media(max-width:700px){
-  .page{margin:0;border:0;box-shadow:none}.official{height:74px;gap:22px}.official .peb{width:128px;height:56px}.official .spw{width:128px;height:56px}
+  body{padding:10px max(10px,env(safe-area-inset-right)) 10px max(10px,env(safe-area-inset-left))}.page{margin:0 auto;border:1px solid #e1e7ec;border-radius:10px;box-shadow:none}.official{height:74px;gap:22px}.official .peb{width:128px;height:56px}.official .spw{width:128px;height:56px}
   .identity{padding:13px 15px;gap:10px;align-items:start}.identity>img{width:38px;height:46px}.identity h1{font-size:20px}.identity .role{font-size:10.6px}.identity .credential{font-size:8.9px}.identity .location{font-size:9.1px}
   .delaybar{padding:8px 15px;font-size:9.4px;gap:5px}.delaybar strong{font-size:10.5px}
   main{padding:18px 15px 23px}.topline{align-items:flex-start;margin-bottom:12px}.topline h2{font-size:21px}.availability{font-size:9px}.availability strong{font-size:10px}
   .kind-btn{padding:10px}.kind-btn strong{font-size:11.5px}.size-grid{gap:5px}.size-btn{min-height:36px;padding:7px 8px;font-size:9px}
   .price-panel{padding:10px}.price-grid{gap:6px}.price-card{padding:10px;min-height:104px}.price-card .label{font-size:9px;min-height:24px}.price-card .price{font-size:19px}.price-card .sub{font-size:8.3px}.price-card.existing .condition{font-size:8px}
   .service-row{padding:9px 10px}.service-row .text strong{font-size:10.1px}.service-row .service-price{font-size:17px}
-  .mail-section{margin-top:23px;padding-top:18px}.mail-section h2{font-size:18px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.check-grid{grid-template-columns:1fr}.contactline{padding:12px 15px;flex-direction:column;gap:3px}
+  .mail-section{margin-top:23px;padding-top:18px}.mail-section h2{font-size:18px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.check-grid{grid-template-columns:1fr}input,textarea{font-size:16px}.contactline{padding:12px 15px;flex-direction:column;gap:3px}
 }
 </style>
 </head>
@@ -132,7 +132,7 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
       <h2 id="mail-title">Demander mes disponibilités</h2>
       <div class="free-note"><b>✓</b> Demande gratuite · sans engagement · aucune donnée enregistrée sur ce site</div>
 
-      <form id="quoteForm">
+      <form id="quoteForm" novalidate>
         <div class="form-grid">
           <div class="field full"><label>Bien sélectionné</label><div class="selected" id="selectedProperty">Aucun bien sélectionné</div></div>
 
@@ -147,7 +147,7 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
             <div class="form-error" id="serviceError">Sélectionnez au moins un service.</div>
           </div>
 
-          <div class="field full"><label for="adresse">Adresse du bien *</label><input id="adresse" type="text" autocomplete="street-address" required placeholder="Rue, n°, code postal, localité"></div>
+          <div class="field full" id="addressField"><label for="adresse" id="addressLabel">Adresse du bien *</label><input id="adresse" type="text" autocomplete="street-address" placeholder="Rue, n°, code postal, localité"><div class="form-error" id="addressError">Indiquez l'adresse du bien.</div></div>
           <div class="field"><label for="nom">Nom</label><input id="nom" type="text" autocomplete="name" placeholder="Nom et prénom"></div>
           <div class="field"><label for="telephone">Téléphone</label><input id="telephone" type="tel" autocomplete="tel" placeholder="0470 00 00 00"></div>
           <div class="field full"><label for="message">Précision éventuelle</label><textarea id="message" placeholder="Ex. vente prochaine, préférence horaire…"></textarea></div>
@@ -216,19 +216,65 @@ function chooseSize(item, btn){
 
 document.querySelectorAll('.kind-btn').forEach(btn=>btn.addEventListener('click',()=>chooseKind(btn.dataset.kind,btn)));
 
+document.getElementById('adresse').addEventListener('input',()=>{
+  const input=document.getElementById('adresse');
+  const err=document.getElementById('addressError');
+  const label=document.getElementById('addressLabel');
+  if(input.value.trim()){
+    input.classList.remove('invalid');
+    err.classList.remove('visible');
+    label.classList.remove('invalid-label');
+  }
+});
+
+document.querySelectorAll('input[name="service"]').forEach(cb=>cb.addEventListener('change',()=>{
+  if(document.querySelector('input[name="service"]:checked')){
+    document.getElementById('serviceError').classList.remove('visible');
+    document.getElementById('services').classList.remove('invalid');
+    document.querySelector('.field-title').classList.remove('invalid-label');
+  }
+}));
+
 document.getElementById('quoteForm').addEventListener('submit',function(e){
   e.preventDefault();
-  const adresse=document.getElementById('adresse').value.trim();
+  const adresseInput=document.getElementById('adresse');
+  const adresse=adresseInput.value.trim();
   const checked=[...document.querySelectorAll('input[name="service"]:checked')].map(el=>el.value);
   const serviceError=document.getElementById('serviceError');
+  const servicesBox=document.getElementById('services');
+  const servicesTitle=document.querySelector('.field-title');
+  const addressError=document.getElementById('addressError');
+  const addressLabel=document.getElementById('addressLabel');
+
+  let firstInvalid=null;
 
   if(!checked.length){
     serviceError.classList.add('visible');
-    document.getElementById('services').scrollIntoView({behavior:'smooth',block:'center'});
+    servicesBox.classList.add('invalid');
+    servicesTitle.classList.add('invalid-label');
+    firstInvalid=servicesBox;
+  } else {
+    serviceError.classList.remove('visible');
+    servicesBox.classList.remove('invalid');
+    servicesTitle.classList.remove('invalid-label');
+  }
+
+  if(!adresse){
+    adresseInput.classList.add('invalid');
+    addressError.classList.add('visible');
+    addressLabel.classList.add('invalid-label');
+    if(!firstInvalid) firstInvalid=adresseInput;
+  } else {
+    adresseInput.classList.remove('invalid');
+    addressError.classList.remove('visible');
+    addressLabel.classList.remove('invalid-label');
+  }
+
+  if(firstInvalid){
+    firstInvalid.scrollIntoView({behavior:'smooth',block:'center'});
+    if(firstInvalid===adresseInput) setTimeout(()=>adresseInput.focus({preventScroll:true}),250);
     return;
   }
-  serviceError.classList.remove('visible');
-  if(!adresse){document.getElementById('adresse').focus();return;}
 
   const nom=document.getElementById('nom').value.trim();
   const telephone=document.getElementById('telephone').value.trim();
@@ -238,35 +284,36 @@ document.getElementById('quoteForm').addEventListener('submit',function(e){
   const lines=[];
   checked.forEach(service=>{
     if(service==='Nouveau certificat PEB'){
-      lines.push(`• Nouveau certificat PEB — ${selected ? selected.newPrice+' TVAC' : 'tarif à déterminer selon le type et la superficie du bien'}`);
+      lines.push(`🏠 Nouveau certificat PEB — ${selected ? selected.newPrice+' TVAC' : 'tarif à déterminer selon le type et la superficie du bien'}`);
     } else if(service==="PEB sur base d'un PEB existant"){
-      lines.push(`• PEB sur base d'un PEB existant — ${selected ? selected.existingPrice+' TVAC' : 'tarif à déterminer selon le type et la superficie du bien'}`);
-      lines.push('  Condition : le volume chauffé du bâtiment n’a pas changé depuis le dernier certificat PEB.');
+      lines.push(`📄 PEB sur base d'un PEB existant — ${selected ? selected.existingPrice+' TVAC' : 'tarif à déterminer selon le type et la superficie du bien'}`);
+      lines.push('   ↳ Condition : le volume chauffé du bâtiment n’a pas changé depuis le dernier certificat PEB.');
     } else if(service==='Simulation PEB après travaux'){
-      lines.push('• Simulation PEB après travaux — 50 € TVAC');
+      lines.push('📊 Simulation PEB après travaux — 50 € TVAC');
     } else if(service==='Contrôle électrique avec PV via Certinergie'){
-      lines.push('• Contrôle électrique — partenariat Certinergie — 175 € TVAC');
+      lines.push('⚡ Contrôle électrique — partenariat Certinergie — 175 € TVAC');
     }
   });
 
-  const subject=`Demande de disponibilités – ${adresse}`;
+  const subject=`Demande de disponibilités PEB – ${adresse}`;
   const body=[
     'Bonjour Monsieur Deglin,',
     '',
     'Je souhaiterais connaître vos prochaines disponibilités pour le bien suivant :',
     '',
-    `Adresse : ${adresse}`,
-    `Bien : ${bien}`,
+    `📍 Adresse : ${adresse}`,
+    `🏡 Bien : ${bien}`,
     '',
-    'Prestation(s) souhaitée(s) :',
+    'Prestations souhaitées :',
     ...lines,
     '',
-    ...(nom ? [`Nom : ${nom}`] : []),
-    ...(telephone ? [`Téléphone : ${telephone}`] : []),
+    ...(nom ? [`👤 Nom : ${nom}`] : []),
+    ...(telephone ? [`📞 Téléphone : ${telephone}`] : []),
     ...((nom || telephone) ? [''] : []),
-    ...(precision ? [`Remarque : ${precision}`,''] : []),
+    ...(precision ? [`💬 Remarque : ${precision}`,''] : []),
     'Pourriez-vous me confirmer vos prochaines disponibilités ainsi que les modalités de rendez-vous ?',
     '',
+    'Merci d’avance,',
     'Bien à vous,'
   ].join('\n');
 
