@@ -252,6 +252,26 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
 .check-option input[type="checkbox"]:focus-visible{outline:0;box-shadow:0 0 0 3px rgba(45,120,180,.16)}
 .check-option span{font-size:10.5px;line-height:1.3;color:#40566a}
 .check-option:has(input:checked){border-color:#91b0c8;background:#f5f9fc;box-shadow:0 0 0 1px rgba(45,120,180,.04)}
+
+.address-fieldset{border:0;margin:0;padding:0;min-width:0;display:grid;gap:7px}
+.address-builder{display:grid;grid-template-columns:1fr 1.45fr .62fr;gap:7px;align-items:start}
+.address-step{position:relative;display:grid;gap:5px;min-width:0}
+.address-step input:disabled{background:#f3f5f7;color:#929da6;cursor:not-allowed}
+.address-step input.selected-address{border-color:#90afc6;background:#fbfdff}
+.suggestions{display:none;position:absolute;z-index:60;top:calc(100% + 4px);left:0;right:0;max-height:210px;overflow:auto;border:1px solid #cbd7e0;border-radius:8px;background:#fff;box-shadow:0 10px 24px rgba(27,53,75,.15);padding:4px}
+.suggestions.open{display:block}
+.suggestion{width:100%;border:0;background:#fff;border-radius:6px;padding:8px 9px;text-align:left;cursor:pointer;color:#2d4558;display:grid;gap:2px}
+.suggestion:hover,.suggestion:focus-visible{background:#f1f7fb;outline:0}
+.suggestion strong{font-size:10.7px;line-height:1.25}.suggestion small{font-size:8.8px;line-height:1.25;color:#788692}
+.address-selected{display:none;margin-top:2px;padding:8px 10px;border:1px solid #d7e4ec;border-radius:7px;background:#f5f9fb;color:#36546b;font-size:10.5px;line-height:1.35}
+.address-selected.visible{display:block}.address-selected strong{color:#25445b}
+.address-tools{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:18px}
+.address-helper{font-size:8.8px;color:#84909a;line-height:1.3}
+.manual-toggle{border:0;background:transparent;padding:0;color:#5a7387;font-size:9px;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.manual-address{display:none}.manual-address.visible{display:grid}
+.icar-status{display:none;font-size:9px;color:#9b5a24;line-height:1.35}.icar-status.visible{display:block}
+.address-builder.invalid{padding:5px;border:1.5px solid #c9473f;border-radius:9px;background:#fff7f6}
+
 #propertyError{display:none;margin-top:7px;font-size:9.8px;font-weight:700;color:#b3261e}#propertyError.visible{display:block}.kind-grid.invalid{padding:5px;border:1.5px solid #c9473f;border-radius:9px;background:#fff7f6}.size-grid.invalid{padding:5px;border:1.5px solid #c9473f;border-radius:999px;background:#fff7f6}
 .form-error{display:none;margin-top:2px;font-size:9.8px;font-weight:700;color:#b3261e}.form-error.visible{display:block}.check-grid.invalid{padding:5px;border:1.5px solid #c9473f;border-radius:9px;background:#fff7f6}.field input.invalid{border:1.5px solid #c9473f;background:#fff8f7;box-shadow:0 0 0 2px rgba(201,71,63,.08)}.field label.invalid-label,.field-title.invalid-label{color:#b3261e}
 .mail-btn{width:100%;min-height:42px;border:0;border-radius:7px;background:var(--navy);color:#fff;font-size:12px;font-weight:800;cursor:pointer}.mail-note{margin:6px 0 0;text-align:center;font-size:9px;color:#7a8793;line-height:1.4}
@@ -264,7 +284,7 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
   .kind-btn{padding:10px}.kind-btn strong{font-size:11.5px}.size-grid{gap:5px}.size-btn{min-height:36px;padding:7px 8px;font-size:9px}
   .price-panel{padding:10px}.price-grid{gap:6px}.price-card{padding:10px;min-height:104px}.price-card .label{font-size:9px;min-height:24px}.price-card .price{font-size:19px}.price-card .sub{font-size:8.3px}.price-card.existing .condition{font-size:8px}
   .service-row{padding:9px 10px}.service-row .text strong{font-size:10.1px}.service-row .service-price{font-size:17px}
-  .mail-section{margin-top:23px;padding-top:18px}.mail-section h2{font-size:18px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.check-grid{grid-template-columns:1fr}input,textarea{font-size:16px}.contactline{padding:12px 15px;flex-direction:column;gap:3px}
+  .mail-section{margin-top:23px;padding-top:18px}.mail-section h2{font-size:18px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.check-grid{grid-template-columns:1fr}.address-builder{grid-template-columns:1fr}.suggestions{max-height:180px}input,textarea{font-size:16px}.contactline{padding:12px 15px;flex-direction:column;gap:3px}
 }
 </style>
 </head>
@@ -358,7 +378,33 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
             <div class="form-error" id="serviceError">Sélectionnez au moins un service.</div>
           </div>
 
-          <div class="field full" id="addressField"><label for="adresse" id="addressLabel">Adresse du bien *</label><input id="adresse" type="text" autocomplete="street-address" placeholder="Rue, n°, code postal, localité"><div class="form-error" id="addressError">Indiquez l'adresse du bien.</div></div>
+          <div class="field full" id="addressField">
+            <div class="field-title" id="addressLabel">Adresse du bien *</div>
+            <fieldset class="address-fieldset" id="icarAddress">
+              <div class="address-builder" id="addressBuilder">
+                <div class="address-step">
+                  <label for="cityInput">Commune</label>
+                  <input id="cityInput" type="text" autocomplete="off" spellcheck="false" placeholder="Ex. Hannut" aria-autocomplete="list" aria-controls="citySuggestions">
+                  <div class="suggestions" id="citySuggestions" role="listbox"></div>
+                </div>
+                <div class="address-step">
+                  <label for="streetInput">Rue</label>
+                  <input id="streetInput" type="text" autocomplete="off" spellcheck="false" placeholder="Choisissez d'abord la commune" disabled aria-autocomplete="list" aria-controls="streetSuggestions">
+                  <div class="suggestions" id="streetSuggestions" role="listbox"></div>
+                </div>
+                <div class="address-step">
+                  <label for="houseInput">N°</label>
+                  <input id="houseInput" type="text" autocomplete="off" spellcheck="false" inputmode="text" placeholder="N°" disabled aria-autocomplete="list" aria-controls="houseSuggestions">
+                  <div class="suggestions" id="houseSuggestions" role="listbox"></div>
+                </div>
+              </div>
+              <div class="address-selected" id="addressSelected"><strong>Adresse retenue :</strong> <span id="addressSelectedText"></span></div>
+              <div class="icar-status" id="icarStatus">Le service ICAR est momentanément indisponible. Vous pouvez utiliser la saisie manuelle.</div>
+              <div class="address-tools"><span class="address-helper">Suggestions issues du référentiel d'adresses ICAR du SPW.</span><button class="manual-toggle" id="manualToggle" type="button">Adresse introuvable ? Saisie manuelle</button></div>
+            </fieldset>
+            <div class="manual-address" id="manualAddress"><label for="manualAddressInput">Adresse complète</label><input id="manualAddressInput" type="text" autocomplete="street-address" placeholder="Rue, n°, code postal, localité"></div>
+            <div class="form-error" id="addressError">Sélectionnez la commune, la rue et le numéro dans les propositions.</div>
+          </div>
           <div class="field"><label for="nom">Nom</label><input id="nom" type="text" autocomplete="name" placeholder="Nom et prénom"></div>
           <div class="field"><label for="telephone">Téléphone</label><input id="telephone" type="tel" autocomplete="tel" placeholder="0470 00 00 00"></div>
           <div class="field full"><label for="message">Précision éventuelle</label><textarea id="message" placeholder="Ex. vente prochaine, préférence horaire…"></textarea></div>
@@ -438,15 +484,178 @@ function chooseSize(item, btn){
 
 document.querySelectorAll('.kind-btn').forEach(btn=>btn.addEventListener('click',()=>chooseKind(btn.dataset.kind,btn)));
 
-document.getElementById('adresse').addEventListener('input',()=>{
-  const input=document.getElementById('adresse');
-  const err=document.getElementById('addressError');
-  const label=document.getElementById('addressLabel');
-  if(input.value.trim()){
-    input.classList.remove('invalid');
-    err.classList.remove('visible');
-    label.classList.remove('invalid-label');
+const ICAR_ENDPOINT='https://geoservices.wallonie.be/geocodeWS/geolist';
+const addressState={city:null,street:null,house:null,zone:null,formatted:''};
+let addressMode='icar';
+const requestControllers={city:null,street:null,house:null};
+const timers={city:null,street:null,house:null};
+
+const cityInput=document.getElementById('cityInput');
+const streetInput=document.getElementById('streetInput');
+const houseInput=document.getElementById('houseInput');
+const addressBuilder=document.getElementById('addressBuilder');
+const addressError=document.getElementById('addressError');
+const addressLabel=document.getElementById('addressLabel');
+const addressSelected=document.getElementById('addressSelected');
+const addressSelectedText=document.getElementById('addressSelectedText');
+const manualAddress=document.getElementById('manualAddress');
+const manualAddressInput=document.getElementById('manualAddressInput');
+const manualToggle=document.getElementById('manualToggle');
+const icarStatus=document.getElementById('icarStatus');
+
+function closeSuggestions(type){
+  document.getElementById(type+'Suggestions').classList.remove('open');
+}
+function closeAllSuggestions(){['city','street','house'].forEach(closeSuggestions);}
+function clearAddressError(){
+  addressError.classList.remove('visible');
+  addressLabel.classList.remove('invalid-label');
+  addressBuilder.classList.remove('invalid');
+  manualAddressInput.classList.remove('invalid');
+}
+function clearSelectedAddress(){
+  addressState.formatted='';
+  addressSelected.classList.remove('visible');
+  addressSelectedText.textContent='';
+}
+function resetAfterCity(){
+  addressState.street=null;addressState.house=null;addressState.zone=null;clearSelectedAddress();
+  streetInput.value='';houseInput.value='';
+  streetInput.disabled=!addressState.city;houseInput.disabled=true;
+  streetInput.placeholder=addressState.city?'Commencez à saisir la rue':"Choisissez d'abord la commune";
+  houseInput.placeholder='N°';
+  streetInput.classList.remove('selected-address');houseInput.classList.remove('selected-address');
+  closeSuggestions('street');closeSuggestions('house');
+}
+function resetAfterStreet(){
+  addressState.house=null;clearSelectedAddress();
+  houseInput.value='';houseInput.disabled=!addressState.street;
+  houseInput.classList.remove('selected-address');
+  closeSuggestions('house');
+}
+function icarUrl(params){
+  const url=new URL(ICAR_ENDPOINT);
+  Object.entries({...params,scopes:'WAL',lang:'fr',geom:'false',bbox:'false'}).forEach(([k,v])=>url.searchParams.set(k,String(v)));
+  return url.toString();
+}
+async function fetchIcar(type,query){
+  if(requestControllers[type]) requestControllers[type].abort();
+  const controller=new AbortController();requestControllers[type]=controller;
+  let params={};
+  if(type==='city') params={city:query};
+  if(type==='street') params={city:addressState.city.ident,street:query};
+  if(type==='house') params={city:addressState.city.ident,street:addressState.street.ident,house:query};
+  const response=await fetch(icarUrl(params),{signal:controller.signal,headers:{Accept:'application/json'},credentials:'omit'});
+  if(!response.ok) throw new Error('ICAR '+response.status);
+  const data=await response.json();
+  icarStatus.classList.remove('visible');
+  return Array.isArray(data.candidates)?data.candidates:[];
+}
+function candidateKey(type,c){
+  const item=c[type];return item ? String(item.ident ?? item.name) : '';
+}
+function uniqueCandidates(type,candidates){
+  const seen=new Set();const result=[];
+  for(const c of candidates){
+    if(!c || !c[type]) continue;
+    const key=candidateKey(type,c);
+    if(!key || seen.has(key)) continue;
+    seen.add(key);result.push(c);
+    if(result.length>=7) break;
   }
+  return result;
+}
+function renderSuggestions(type,candidates){
+  const list=document.getElementById(type+'Suggestions');
+  list.innerHTML='';
+  const items=uniqueCandidates(type,candidates);
+  if(!items.length){list.classList.remove('open');return;}
+  items.forEach(c=>{
+    const item=c[type];
+    const button=document.createElement('button');button.type='button';button.className='suggestion';button.setAttribute('role','option');
+    const strong=document.createElement('strong');
+    const small=document.createElement('small');
+    if(type==='city'){
+      strong.textContent=item.name;
+      small.textContent='Commune';
+    } else if(type==='street'){
+      strong.textContent=item.name;
+      small.textContent=c.zone ? `${c.zone.ident} ${c.zone.name}` : addressState.city.name;
+    } else {
+      strong.textContent='N° '+item.name;
+      small.textContent=c.zone ? `${c.zone.ident} ${c.zone.name}` : (addressState.street?.name||'');
+    }
+    button.append(strong,small);
+    button.addEventListener('click',()=>selectAddressCandidate(type,c));
+    list.appendChild(button);
+  });
+  list.classList.add('open');
+}
+function selectAddressCandidate(type,c){
+  clearAddressError();
+  if(type==='city'){
+    addressState.city=c.city;cityInput.value=c.city.name;cityInput.classList.add('selected-address');
+    resetAfterCity();closeSuggestions('city');streetInput.disabled=false;setTimeout(()=>streetInput.focus(),0);
+  } else if(type==='street'){
+    addressState.street=c.street;addressState.zone=c.zone||null;streetInput.value=c.street.name;streetInput.classList.add('selected-address');
+    resetAfterStreet();closeSuggestions('street');houseInput.disabled=false;setTimeout(()=>houseInput.focus(),0);
+  } else {
+    addressState.house=c.house;addressState.zone=c.zone||addressState.zone||null;houseInput.value=c.house.name;houseInput.classList.add('selected-address');
+    closeSuggestions('house');
+    const locality=addressState.zone ? `${addressState.zone.ident} ${addressState.zone.name}` : addressState.city.name;
+    addressState.formatted=`${addressState.street.name} ${addressState.house.name}, ${locality}`;
+    addressSelectedText.textContent=addressState.formatted;
+    addressSelected.classList.add('visible');
+  }
+}
+function scheduleLookup(type,input,minChars){
+  clearTimeout(timers[type]);
+  const q=input.value.trim();
+  if(q.length<minChars){closeSuggestions(type);return;}
+  timers[type]=setTimeout(async()=>{
+    try{
+      const candidates=await fetchIcar(type,q);
+      renderSuggestions(type,candidates);
+    }catch(err){
+      if(err.name==='AbortError') return;
+      closeSuggestions(type);icarStatus.classList.add('visible');
+    }
+  },220);
+}
+cityInput.addEventListener('input',()=>{
+  if(addressState.city && cityInput.value!==addressState.city.name){addressState.city=null;cityInput.classList.remove('selected-address');resetAfterCity();}
+  clearAddressError();scheduleLookup('city',cityInput,2);
+});
+streetInput.addEventListener('input',()=>{
+  if(!addressState.city) return;
+  if(addressState.street && streetInput.value!==addressState.street.name){addressState.street=null;streetInput.classList.remove('selected-address');resetAfterStreet();}
+  clearAddressError();scheduleLookup('street',streetInput,2);
+});
+houseInput.addEventListener('input',()=>{
+  if(!addressState.street) return;
+  if(addressState.house && houseInput.value!==addressState.house.name){addressState.house=null;houseInput.classList.remove('selected-address');clearSelectedAddress();}
+  clearAddressError();scheduleLookup('house',houseInput,1);
+});
+manualAddressInput.addEventListener('input',clearAddressError);
+manualToggle.addEventListener('click',()=>{
+  closeAllSuggestions();clearAddressError();
+  if(addressMode==='icar'){
+    addressMode='manual';
+    document.getElementById('icarAddress').style.display='none';
+    manualAddress.classList.add('visible');
+    manualToggle.textContent='Utiliser les suggestions ICAR';
+    manualAddress.appendChild(manualToggle);
+    setTimeout(()=>manualAddressInput.focus(),0);
+  }else{
+    addressMode='icar';
+    manualAddress.classList.remove('visible');
+    document.getElementById('icarAddress').style.display='grid';
+    document.querySelector('.address-tools').appendChild(manualToggle);
+    manualToggle.textContent='Adresse introuvable ? Saisie manuelle';
+  }
+});
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.address-step')) closeAllSuggestions();
 });
 
 document.querySelectorAll('input[name="service"]').forEach(cb=>cb.addEventListener('change',()=>{
@@ -462,8 +671,7 @@ document.querySelectorAll('input[name="service"]').forEach(cb=>cb.addEventListen
 
 document.getElementById('quoteForm').addEventListener('submit',function(e){
   e.preventDefault();
-  const adresseInput=document.getElementById('adresse');
-  const adresse=adresseInput.value.trim();
+  const adresse=addressMode==='manual' ? manualAddressInput.value.trim() : addressState.formatted;
   const checked=[...document.querySelectorAll('input[name="service"]:checked')].map(el=>el.value);
   const serviceError=document.getElementById('serviceError');
   const servicesBox=document.getElementById('services');
@@ -503,19 +711,23 @@ document.getElementById('quoteForm').addEventListener('submit',function(e){
   }
 
   if(!adresse){
-    adresseInput.classList.add('invalid');
+    addressError.textContent=addressMode==='manual' ? "Indiquez l'adresse du bien." : 'Sélectionnez la commune, la rue et le numéro dans les propositions.';
     addressError.classList.add('visible');
     addressLabel.classList.add('invalid-label');
-    if(!firstInvalid) firstInvalid=adresseInput;
+    if(addressMode==='manual'){
+      manualAddressInput.classList.add('invalid');
+      if(!firstInvalid) firstInvalid=manualAddressInput;
+    }else{
+      addressBuilder.classList.add('invalid');
+      if(!firstInvalid) firstInvalid=addressBuilder;
+    }
   } else {
-    adresseInput.classList.remove('invalid');
-    addressError.classList.remove('visible');
-    addressLabel.classList.remove('invalid-label');
+    clearAddressError();
   }
 
   if(firstInvalid){
     firstInvalid.scrollIntoView({behavior:'smooth',block:'center'});
-    if(firstInvalid===adresseInput) setTimeout(()=>adresseInput.focus({preventScroll:true}),250);
+    if(firstInvalid===manualAddressInput) setTimeout(()=>manualAddressInput.focus({preventScroll:true}),250);
     return;
   }
 
