@@ -223,12 +223,12 @@ a{color:inherit}
 .identity>img{width:48px;height:58px;object-fit:contain;margin-top:1px}
 .identity h1{margin:0;color:var(--navy);font-size:25px;line-height:1.05;letter-spacing:-.028em}
 .identity-details{margin-top:8px;color:#202a33}
-.identity .role{font-size:12.5px;line-height:1.4;font-weight:750;color:#263746}
-.cert-group{margin-top:12px}.cert-title{font-size:12px;font-weight:800;color:#263746;margin-bottom:4px}
-.cert-line{display:flex;align-items:baseline;gap:8px;font-size:10.9px;line-height:1.45;color:#465a6b;white-space:nowrap}
+.identity .role{font-size:14px;line-height:1.42;font-weight:780;color:#263746}
+.cert-group{margin-top:13px}.cert-title{font-size:13.5px;font-weight:820;color:#263746;margin-bottom:5px}
+.cert-line{display:flex;align-items:baseline;gap:8px;font-size:12px;line-height:1.5;color:#465a6b;white-space:nowrap}
 .cert-line::before{content:"–";width:13px;flex:0 0 13px;text-align:center;color:#233b50;font-weight:800}.cert-line strong{color:#263746}
-.location-block{margin-top:12px;font-size:10.9px;line-height:1.45;color:#516574}.location-block strong{color:#263746}.location-sub{display:block;margin-top:1px;color:#516574}
-.delaybar{display:flex;align-items:baseline;justify-content:center;gap:8px;padding:9px 22px;border-bottom:1px solid var(--line);background:#f4f8fb;color:#52697c;font-size:11px;line-height:1.35;text-align:center}.delaybar strong{color:var(--navy);font-size:12.5px}
+.location-block{margin-top:13px;font-size:12px;line-height:1.5;color:#516574}.location-block strong{color:#263746}.location-sub{display:block;margin-top:1px;color:#516574}
+.delaybar{display:flex;align-items:baseline;justify-content:center;gap:8px;padding:11px 22px;border-top:1px solid #d6e8dc;border-bottom:1px solid #d6e8dc;background:#eef8f1;color:#4f6e5c;font-size:11.5px;line-height:1.35;text-align:center}.delaybar strong{color:#246142;font-size:13.5px;font-weight:850}
 main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:14px}.topline h2{margin:0;color:var(--navy);font-size:24px;letter-spacing:-.03em}
 .availability{text-align:right;font-size:10.5px;color:var(--muted);line-height:1.35;white-space:nowrap}.availability strong{display:block;color:var(--green);font-size:11.5px}
 .kind-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.kind-btn{border:1px solid #d4dee6;background:#fff;border-radius:8px;padding:11px 12px;cursor:pointer;text-align:left;transition:.15s}.kind-btn strong{display:block;color:#284860;font-size:13px}.kind-btn.active{border-color:var(--blue);background:#f1f7fb;box-shadow:0 0 0 1px rgba(45,120,180,.07)}
@@ -278,8 +278,8 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
 .contactline{display:flex;justify-content:space-between;gap:14px;padding:14px 22px;border-top:1px solid var(--line);background:#fbfcfd;color:#697886;font-size:10px}.contactline a{text-decoration:none;color:#455d71;font-weight:650}.contactline a:hover{text-decoration:underline;text-underline-offset:2px}
 @media(max-width:700px){
   body{padding:10px max(10px,env(safe-area-inset-right)) 10px max(10px,env(safe-area-inset-left))}.page{margin:0 auto;border:1px solid #e1e7ec;border-radius:10px;box-shadow:none}.official{height:74px;gap:22px}.official .peb{width:128px;height:56px}.official .spw{width:128px;height:56px}
-  .identity{grid-template-columns:38px 1fr;padding:13px 15px 14px;gap:10px}.identity>img{width:38px;height:46px}.identity h1{font-size:20px}.identity-details{grid-column:1/-1;margin-top:1px;padding-left:0}.identity .role{font-size:10.7px}.cert-group{margin-top:10px}.cert-title{font-size:10.7px;margin-bottom:3px}.cert-line{gap:5px;font-size:9.35px;line-height:1.45}.cert-line::before{width:11px;flex-basis:11px}.location-block{margin-top:10px;font-size:9.5px;line-height:1.45}
-  .delaybar{padding:8px 15px;font-size:9.4px;gap:5px}.delaybar strong{font-size:10.5px}
+  .identity{grid-template-columns:40px 1fr;padding:14px 15px 15px;gap:10px}.identity>img{width:40px;height:48px}.identity h1{font-size:22px}.identity-details{grid-column:1/-1;margin-top:2px;padding-left:0}.identity .role{font-size:12.4px;line-height:1.45}.cert-group{margin-top:11px}.cert-title{font-size:12.2px;margin-bottom:4px}.cert-line{gap:5px;font-size:10.55px;line-height:1.5}.cert-line::before{width:11px;flex-basis:11px}.location-block{margin-top:11px;font-size:10.7px;line-height:1.5}
+  .delaybar{padding:10px 12px;font-size:10.2px;gap:5px;flex-wrap:wrap}.delaybar strong{font-size:12.2px}
   main{padding:18px 15px 23px}.topline{align-items:flex-start;margin-bottom:12px}.topline h2{font-size:21px}.availability{font-size:9px}.availability strong{font-size:10px}
   .kind-btn{padding:10px}.kind-btn strong{font-size:11.5px}.size-grid{gap:5px}.size-btn{min-height:36px;padding:7px 8px;font-size:9px}
   .price-panel{padding:10px}.price-grid{gap:6px}.price-card{padding:10px;min-height:104px}.price-card .label{font-size:9px;min-height:24px}.price-card .price{font-size:19px}.price-card .sub{font-size:8.3px}.price-card.existing .condition{font-size:8px}
@@ -393,17 +393,17 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
                   <div class="suggestions" id="streetSuggestions" role="listbox"></div>
                 </div>
                 <div class="address-step">
-                  <label for="houseInput">N°</label>
-                  <input id="houseInput" type="text" autocomplete="off" spellcheck="false" inputmode="text" placeholder="N°" disabled aria-autocomplete="list" aria-controls="houseSuggestions">
+                  <label for="houseInput">N° / complément</label>
+                  <input id="houseInput" type="text" autocomplete="off" spellcheck="false" inputmode="text" placeholder="Ex. 6D" disabled aria-autocomplete="list" aria-controls="houseSuggestions">
                   <div class="suggestions" id="houseSuggestions" role="listbox"></div>
                 </div>
               </div>
               <div class="address-selected" id="addressSelected"><strong>Adresse retenue :</strong> <span id="addressSelectedText"></span></div>
               <div class="icar-status" id="icarStatus">Le service ICAR est momentanément indisponible. Vous pouvez utiliser la saisie manuelle.</div>
-              <div class="address-tools"><span class="address-helper">Suggestions issues du référentiel d'adresses ICAR du SPW.</span><button class="manual-toggle" id="manualToggle" type="button">Adresse introuvable ? Saisie manuelle</button></div>
+              <div class="address-tools"><span class="address-helper">Commune et rue via ICAR · le n° peut être saisi librement (ex. 6D).</span><button class="manual-toggle" id="manualToggle" type="button">Adresse introuvable ? Saisie manuelle</button></div>
             </fieldset>
             <div class="manual-address" id="manualAddress"><label for="manualAddressInput">Adresse complète</label><input id="manualAddressInput" type="text" autocomplete="street-address" placeholder="Rue, n°, code postal, localité"></div>
-            <div class="form-error" id="addressError">Sélectionnez la commune, la rue et le numéro dans les propositions.</div>
+            <div class="form-error" id="addressError">Sélectionnez la commune et la rue, puis indiquez le numéro.</div>
           </div>
           <div class="field"><label for="nom">Nom</label><input id="nom" type="text" autocomplete="name" placeholder="Nom et prénom"></div>
           <div class="field"><label for="telephone">Téléphone</label><input id="telephone" type="tel" autocomplete="tel" placeholder="0470 00 00 00"></div>
@@ -523,7 +523,7 @@ function resetAfterCity(){
   streetInput.value='';houseInput.value='';
   streetInput.disabled=!addressState.city;houseInput.disabled=true;
   streetInput.placeholder=addressState.city?'Commencez à saisir la rue':"Choisissez d'abord la commune";
-  houseInput.placeholder='N°';
+  houseInput.placeholder='Ex. 6D';
   streetInput.classList.remove('selected-address');houseInput.classList.remove('selected-address');
   closeSuggestions('street');closeSuggestions('house');
 }
@@ -631,10 +631,32 @@ streetInput.addEventListener('input',()=>{
   if(addressState.street && streetInput.value!==addressState.street.name){addressState.street=null;streetInput.classList.remove('selected-address');resetAfterStreet();}
   clearAddressError();scheduleLookup('street',streetInput,2);
 });
+function buildTypedIcarAddress(){
+  const number=houseInput.value.trim();
+  if(!addressState.city || !addressState.street || !number) return '';
+  const locality=addressState.zone ? `${addressState.zone.ident} ${addressState.zone.name}` : addressState.city.name;
+  return `${addressState.street.name} ${number}, ${locality}`;
+}
+function refreshTypedIcarAddress(){
+  const formatted=buildTypedIcarAddress();
+  addressState.formatted=formatted;
+  if(formatted){
+    addressSelectedText.textContent=formatted;
+    addressSelected.classList.add('visible');
+  }else{
+    addressSelected.classList.remove('visible');
+    addressSelectedText.textContent='';
+  }
+}
 houseInput.addEventListener('input',()=>{
   if(!addressState.street) return;
-  if(addressState.house && houseInput.value!==addressState.house.name){addressState.house=null;houseInput.classList.remove('selected-address');clearSelectedAddress();}
-  clearAddressError();scheduleLookup('house',houseInput,1);
+  if(addressState.house && houseInput.value!==addressState.house.name){
+    addressState.house=null;
+    houseInput.classList.remove('selected-address');
+  }
+  clearAddressError();
+  refreshTypedIcarAddress();
+  scheduleLookup('house',houseInput,1);
 });
 manualAddressInput.addEventListener('input',clearAddressError);
 manualToggle.addEventListener('click',()=>{
@@ -671,7 +693,7 @@ document.querySelectorAll('input[name="service"]').forEach(cb=>cb.addEventListen
 
 document.getElementById('quoteForm').addEventListener('submit',function(e){
   e.preventDefault();
-  const adresse=addressMode==='manual' ? manualAddressInput.value.trim() : addressState.formatted;
+  const adresse=addressMode==='manual' ? manualAddressInput.value.trim() : buildTypedIcarAddress();
   const checked=[...document.querySelectorAll('input[name="service"]:checked')].map(el=>el.value);
   const serviceError=document.getElementById('serviceError');
   const servicesBox=document.getElementById('services');
@@ -711,7 +733,7 @@ document.getElementById('quoteForm').addEventListener('submit',function(e){
   }
 
   if(!adresse){
-    addressError.textContent=addressMode==='manual' ? "Indiquez l'adresse du bien." : 'Sélectionnez la commune, la rue et le numéro dans les propositions.';
+    addressError.textContent=addressMode==='manual' ? "Indiquez l'adresse du bien." : 'Sélectionnez la commune et la rue, puis indiquez le numéro.';
     addressError.classList.add('visible');
     addressLabel.classList.add('invalid-label');
     if(addressMode==='manual'){
