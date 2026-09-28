@@ -222,8 +222,9 @@ a{color:inherit}
 .identity{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;padding:16px 22px 16px;border-bottom:1px solid var(--line);background:#fbfcfd}
 .identity>img{width:48px;height:58px;object-fit:contain;margin-top:1px}
 .identity h1{margin:0;color:var(--navy);font-size:25px;line-height:1.05;letter-spacing:-.028em}
-.identity-details{margin-top:8px;color:#202a33}
-.identity .role{font-size:14px;line-height:1.42;font-weight:780;color:#263746}
+.identity-head{min-width:0;padding-top:1px}
+.identity-head .role{margin-top:5px;font-size:13.2px;line-height:1.35;font-weight:760;color:#405669}
+.identity-details{grid-column:1/-1;margin-top:3px;color:#202a33}
 .cert-group{margin-top:13px}.cert-title{font-size:13.5px;font-weight:820;color:#263746;margin-bottom:5px}
 .cert-line{display:flex;align-items:baseline;gap:8px;font-size:12px;line-height:1.5;color:#465a6b;white-space:nowrap}
 .cert-line::before{content:"–";width:13px;flex:0 0 13px;text-align:center;color:#233b50;font-weight:800}.cert-line strong{color:#263746}
@@ -278,7 +279,7 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
 .contactline{display:flex;justify-content:space-between;gap:14px;padding:14px 22px;border-top:1px solid var(--line);background:#fbfcfd;color:#697886;font-size:10px}.contactline a{text-decoration:none;color:#455d71;font-weight:650}.contactline a:hover{text-decoration:underline;text-underline-offset:2px}
 @media(max-width:700px){
   body{padding:10px max(10px,env(safe-area-inset-right)) 10px max(10px,env(safe-area-inset-left))}.page{margin:0 auto;border:1px solid #e1e7ec;border-radius:10px;box-shadow:none}.official{height:74px;gap:22px}.official .peb{width:128px;height:56px}.official .spw{width:128px;height:56px}
-  .identity{grid-template-columns:40px 1fr;padding:14px 15px 15px;gap:10px}.identity>img{width:40px;height:48px}.identity h1{font-size:22px}.identity-details{grid-column:1/-1;margin-top:2px;padding-left:0}.identity .role{font-size:12.4px;line-height:1.45}.cert-group{margin-top:11px}.cert-title{font-size:12.2px;margin-bottom:4px}.cert-line{gap:5px;font-size:10.55px;line-height:1.5}.cert-line::before{width:11px;flex-basis:11px}.location-block{margin-top:11px;font-size:10.7px;line-height:1.5}
+  .identity{grid-template-columns:40px 1fr;padding:14px 15px 15px;gap:10px}.identity>img{width:40px;height:48px}.identity h1{font-size:22px}.identity-head .role{margin-top:4px;font-size:11.8px;line-height:1.35}.identity-details{grid-column:1/-1;margin-top:2px;padding-left:0}.cert-group{margin-top:11px}.cert-title{font-size:12.2px;margin-bottom:4px}.cert-line{gap:5px;font-size:10.55px;line-height:1.5}.cert-line::before{width:11px;flex-basis:11px}.location-block{margin-top:11px;font-size:10.7px;line-height:1.5}
   .delaybar{padding:10px 12px;font-size:10.2px;gap:5px;flex-wrap:wrap}.delaybar strong{font-size:12.2px}
   main{padding:18px 15px 23px}.topline{align-items:flex-start;margin-bottom:12px}.topline h2{font-size:21px}.availability{font-size:9px}.availability strong{font-size:10px}
   .kind-btn{padding:10px}.kind-btn strong{font-size:11.5px}.size-grid{gap:5px}.size-btn{min-height:36px;padding:7px 8px;font-size:9px}
@@ -297,10 +298,11 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
 
   <header class="identity">
     <img src="logo-simon-deglin.png" alt="Logo Simon Deglin">
-    <div><h1>Simon Deglin</h1></div>
-    <div class="identity-details">
+    <div class="identity-head">
+      <h1>Simon Deglin</h1>
       <div class="role">Ingénieur industriel en construction · finalité géomètre</div>
-
+    </div>
+    <div class="identity-details">
       <div class="cert-group">
         <div class="cert-title">Certificateur PEB</div>
         <div class="cert-line"><strong>Résidentiel</strong><span>· n° d'agrément : CERTIF-P2-02931</span></div>
