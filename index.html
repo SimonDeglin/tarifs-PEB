@@ -251,15 +251,16 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
 .tariff-choice:hover{box-shadow:0 3px 12px rgba(28,48,65,.08)}
 .tariff-choice:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .tariff-choice.is-selected{border-color:#79a88a;background:#f1f8f3;box-shadow:0 0 0 1px rgba(121,168,138,.15)}
-.tariff-hint{margin:9px 0 0;font-size:10px;color:#647b6d}
+.tariffs-heading{display:flex;align-items:center;gap:14px;min-width:0}.tariffs-heading h2{flex-shrink:0}
+.tariff-hint{margin:0;font-size:10px;color:#647b6d;line-height:1.4}
 .order-list{display:grid;gap:7px;min-width:0}
 .order-list.invalid{padding:5px;border:1.5px solid #c9473f;border-radius:9px;background:#fff7f6}
 .order-empty{margin:0;padding:16px 12px;border:1px dashed #cdd9d2;border-radius:9px;background:#fafcfb;font-size:11px;color:#697d70;line-height:1.5}
-.order-row{display:grid;grid-template-columns:minmax(0,1fr) 68px 88px 36px;gap:12px;align-items:center;padding:12px;border:1px solid #dce6df;border-radius:9px;background:#fbfdfb}
-.order-info{min-width:0;display:grid;gap:4px}.order-info strong{font-size:11.5px;line-height:1.35;color:#284537}.order-info span{font-size:10px;line-height:1.4;color:#64786d}
-.order-quantity{display:grid;gap:4px}.order-quantity label{font-size:9px;color:#687c70}.order-quantity input{padding:7px 6px;text-align:center;font-size:14px;background:#fff;min-height:36px}
-.order-amount{text-align:right;white-space:nowrap}.order-amount strong{font-size:13px;color:#2c543d}.order-amount small{display:block;font-size:8.5px;color:#6e8175;margin-top:3px}
-.order-remove{display:grid;place-items:center;width:36px;height:40px;border:0;border-radius:7px;background:transparent;color:#7f6a66;cursor:pointer}.order-remove:hover{background:#f7eae7;color:#aa4536}.order-remove:focus-visible{outline:2px solid var(--blue);outline-offset:2px}.order-remove svg{width:18px;height:18px}
+.order-row{display:grid;grid-template-columns:minmax(0,1fr) 58px minmax(55px,max-content) 32px;gap:10px;align-items:center;padding:7px 10px;border:1px solid #dce6df;border-radius:9px;background:#fbfdfb}
+.order-info{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.order-info strong{font-size:11.5px;line-height:1.35;color:#284537}
+.order-quantity{display:flex;align-items:center;gap:5px}.order-quantity label{font-size:11px;color:#687c70}.order-quantity input{width:44px;padding:5px 3px;text-align:center;font-size:14px;background:#fff;min-height:32px;appearance:textfield}.order-quantity input::-webkit-inner-spin-button,.order-quantity input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.order-amount{text-align:right;white-space:nowrap}.order-amount strong{font-size:13px;color:#2c543d}
+.order-remove{display:grid;place-items:center;width:32px;height:36px;border:0;border-radius:7px;background:transparent;color:#7f6a66;cursor:pointer}.order-remove:hover{background:#f7eae7;color:#aa4536}.order-remove:focus-visible{outline:2px solid var(--blue);outline-offset:2px}.order-remove svg{width:17px;height:17px}
 .order-total{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:10px 12px;border-top:1px solid #dce6df;color:#375c45;font-size:11px}.order-total strong{font-size:17px}
 .order-total[hidden]{display:none}
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -297,10 +298,11 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
   .mail-section{margin-top:23px;padding-top:18px}.mail-section h2{font-size:18px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.address-builder{grid-template-columns:1fr}.suggestions{max-height:180px}input,textarea{font-size:16px}.contactline{padding:12px 15px;flex-direction:column;gap:3px}
 }
 @media(max-width:700px){
-  .order-row{grid-template-columns:minmax(0,1fr) 92px 36px;gap:8px 10px;padding:11px}
-  .order-info{grid-column:1/3;grid-row:1}.order-info strong{font-size:11px}.order-info span{font-size:9.5px}
-  .order-quantity{grid-column:1;grid-row:2;display:grid;gap:4px}.order-quantity input{width:68px;font-size:16px}.order-quantity label{font-size:10px}
-  .order-amount{grid-column:2;grid-row:2}.order-remove{grid-column:3;grid-row:1/3}
+  .tariffs-heading{gap:10px}.topline .availability{display:none}.tariff-hint{font-size:9.5px}
+  .order-row{grid-template-columns:minmax(0,1fr) 44px minmax(43px,max-content) 28px;gap:5px;padding:6px}
+  .order-info strong{font-size:clamp(9px,2.65vw,11px)}
+  .order-quantity{gap:3px}.order-quantity input{width:33px;font-size:16px}.order-quantity label{font-size:10px}
+  .order-amount strong{font-size:11px}.order-remove{width:28px;height:34px}.order-remove svg{width:16px;height:16px}
 }
 </style>
 </head>
@@ -336,7 +338,7 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
   <main>
     <section aria-labelledby="tarifs-title">
       <div class="topline">
-        <div><h2 id="tarifs-title">Tarifs PEB</h2></div>
+        <div class="tariffs-heading"><h2 id="tarifs-title">Tarifs</h2><p class="tariff-hint">Cliquez sur un tarif pour l’ajouter à votre demande.</p></div>
         <div class="availability"><strong>Disponibilités</strong>demande par e-mail en bas de page</div>
       </div>
 
@@ -363,7 +365,6 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
           </div>
         </div>
 
-        <p class="tariff-hint">Cliquez sur un tarif pour l’ajouter à votre demande.</p>
       </div>
 
         <div class="service-row simulation tariff-choice" data-service="simulation" role="button" tabindex="0" aria-pressed="false">
@@ -461,6 +462,8 @@ const serviceDefinitions={
   simulation:{label:'Simulation PEB après travaux envisagés',price:50},
   electric:{label:'Contrôle électrique avec PV — Certinergie',price:175}
 };
+const orderShortLabels={new:'PEB neuf',existing:'PEB exist.',simulation:'Simulation PEB',electric:'Contrôle élec.'};
+const orderShortProperties={apt50:'App. ≤50 m²',apt125:'App. 50–125 m²',aptPlus:'App. >125 m²',house125:'Mais. <125 m²',house200:'Mais. 125–200 m²',housePlus:'Mais. >200 m²'};
 const money=value=>new Intl.NumberFormat('fr-BE',{style:'currency',currency:'EUR',maximumFractionDigits:2,minimumFractionDigits:0}).format(value);
 const validQuantity=value=>Number.isSafeInteger(value)&&value>=1;
 const serviceKey=type=>serviceDefinitions[type].property?(selected?type+':'+selected.key:null):type;
@@ -518,10 +521,10 @@ function renderOrder(){
   requestedServices.forEach(row=>{
     const line=document.createElement('div');line.className='order-row';line.dataset.id=row.id;
     const info=document.createElement('div');info.className='order-info';
-    const title=document.createElement('strong');title.textContent=row.label;
-    const detail=document.createElement('span');detail.textContent=(row.property?row.property+' · ':'')+money(row.price)+' TVAC / unité';info.append(title,detail);
+    const title=document.createElement('strong');title.textContent=orderShortLabels[row.type]+(row.property?' · '+orderShortProperties[row.id.split(':')[1]]:'');
+    info.title=row.label+(row.property?' — '+row.property:'')+' · '+money(row.price)+' TVAC / unité';info.setAttribute('aria-label',info.title);info.appendChild(title);
     const quantity=document.createElement('div');quantity.className='order-quantity';
-    const label=document.createElement('label');label.htmlFor='qty-'+row.id;label.textContent='Quantité';
+    const label=document.createElement('label');label.htmlFor='qty-'+row.id;label.textContent='×';
     const input=document.createElement('input');input.id=label.htmlFor;input.type='number';input.min='1';input.step='1';input.inputMode='numeric';input.value=row.quantity??'';
     input.classList.toggle('invalid',!validQuantity(row.quantity));input.setAttribute('aria-invalid',String(!validQuantity(row.quantity)));
     input.setAttribute('aria-label','Quantité : '+row.label+(row.property?' — '+row.property:''));input.setAttribute('aria-describedby','serviceError');
@@ -532,7 +535,7 @@ function renderOrder(){
     });quantity.append(label,input);
     const amount=document.createElement('div');amount.className='order-amount';
     const value=document.createElement('strong');value.id='amount-'+row.id;
-    const suffix=document.createElement('small');suffix.textContent='TVAC';amount.append(value,suffix);
+    const suffix=document.createElement('small');suffix.className='visually-hidden';suffix.textContent='TVAC';amount.append(value,suffix);
     const remove=document.createElement('button');remove.type='button';remove.className='order-remove';remove.title='Supprimer cette prestation';remove.setAttribute('aria-label','Supprimer '+row.label+(row.property?' — '+row.property:''));
     remove.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M9 6V4h6v2M5 6l1 15h12l1-15M10 10v7M14 10v7"/></svg>';
     remove.addEventListener('click',()=>{removeService(row.id);document.getElementById('servicesTitle').focus({preventScroll:true});});
