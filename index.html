@@ -246,16 +246,23 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
 .electric{border:1px solid var(--elec-line);background:var(--elec-bg)}.electric .text strong,.electric .service-price{color:var(--elec)}.electric a{font-weight:800;text-decoration:underline;text-underline-offset:2px}
 .mail-section{margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}.mail-section h2{margin:0;color:var(--navy);font-size:20px;letter-spacing:-.02em}.free-note{display:inline-flex;align-items:center;gap:5px;margin:8px 0 12px;font-size:10px;color:#60707d}.free-note b{color:var(--green)}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.field{display:grid;gap:5px}.full{grid-column:1/-1}label,.field-title{font-size:10px;font-weight:750;color:#526474}input,textarea{width:100%;border:1px solid #cfd9e2;border-radius:7px;background:#fff;padding:9px 10px;color:#22303c;outline:none;font-size:11.5px}input:focus,textarea:focus{border-color:#7daed2;box-shadow:0 0 0 2px rgba(45,120,180,.08)}textarea{min-height:64px;resize:vertical}.selected{padding:8px 10px;border-radius:7px;background:#f2f7fa;color:#3a566c;font-size:11px}
-.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.check-option{display:flex;align-items:center;gap:9px;border:1px solid #d8e1e8;border-radius:8px;padding:9px 10px;background:#fff;cursor:pointer;transition:border-color .15s,background .15s,box-shadow .15s}
-.check-option:hover{border-color:#b8c8d5;background:#fbfdff}
-.check-option input[type="checkbox"]{-webkit-appearance:none;appearance:none;width:18px;height:18px;flex:0 0 18px;margin:0;padding:0;border:1.7px solid #7890a4;border-radius:4px;background:#fff;display:grid;place-content:center;cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s}
-.check-option input[type="checkbox"]::before{content:"";width:8px;height:4px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:translateY(-1px) rotate(-45deg) scale(0);transform-origin:center;transition:transform .12s ease-in-out}
-.check-option input[type="checkbox"]:checked{background:var(--navy);border-color:var(--navy)}
-.check-option input[type="checkbox"]:checked::before{transform:translateY(-1px) rotate(-45deg) scale(1)}
-.check-option input[type="checkbox"]:focus-visible{outline:0;box-shadow:0 0 0 3px rgba(45,120,180,.16)}
-.check-option span{font-size:10.5px;line-height:1.3;color:#40566a}
-.check-option:has(input:checked){border-color:#91b0c8;background:#f5f9fc;box-shadow:0 0 0 1px rgba(45,120,180,.04)}
+/* Selectable tariffs and requested services */
+.tariff-choice{border-width:3px;cursor:pointer;transition:border-color .15s,box-shadow .15s,background .15s;outline:none}
+.tariff-choice:hover{box-shadow:0 3px 12px rgba(28,48,65,.08)}
+.tariff-choice:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.tariff-choice.is-selected{border-color:#79a88a;background:#f1f8f3;box-shadow:0 0 0 1px rgba(121,168,138,.15)}
+.tariff-hint{margin:9px 0 0;font-size:10px;color:#647b6d}
+.order-list{display:grid;gap:7px;min-width:0}
+.order-list.invalid{padding:5px;border:1.5px solid #c9473f;border-radius:9px;background:#fff7f6}
+.order-empty{margin:0;padding:16px 12px;border:1px dashed #cdd9d2;border-radius:9px;background:#fafcfb;font-size:11px;color:#697d70;line-height:1.5}
+.order-row{display:grid;grid-template-columns:minmax(0,1fr) 68px 88px 36px;gap:12px;align-items:center;padding:12px;border:1px solid #dce6df;border-radius:9px;background:#fbfdfb}
+.order-info{min-width:0;display:grid;gap:4px}.order-info strong{font-size:11.5px;line-height:1.35;color:#284537}.order-info span{font-size:10px;line-height:1.4;color:#64786d}
+.order-quantity{display:grid;gap:4px}.order-quantity label{font-size:9px;color:#687c70}.order-quantity input{padding:7px 6px;text-align:center;font-size:14px;background:#fff;min-height:36px}
+.order-amount{text-align:right;white-space:nowrap}.order-amount strong{font-size:13px;color:#2c543d}.order-amount small{display:block;font-size:8.5px;color:#6e8175;margin-top:3px}
+.order-remove{display:grid;place-items:center;width:36px;height:40px;border:0;border-radius:7px;background:transparent;color:#7f6a66;cursor:pointer}.order-remove:hover{background:#f7eae7;color:#aa4536}.order-remove:focus-visible{outline:2px solid var(--blue);outline-offset:2px}.order-remove svg{width:18px;height:18px}
+.order-total{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:10px 12px;border-top:1px solid #dce6df;color:#375c45;font-size:11px}.order-total strong{font-size:17px}
+.order-total[hidden]{display:none}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 .address-fieldset{border:0;margin:0;padding:0;min-width:0;display:grid;gap:7px}
 .address-builder{display:grid;grid-template-columns:1fr 1.45fr .62fr;gap:7px;align-items:start}
@@ -276,8 +283,7 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
 .icar-status{display:none;font-size:9px;color:#9b5a24;line-height:1.35}.icar-status.visible{display:block}
 .address-builder.invalid{padding:5px;border:1.5px solid #c9473f;border-radius:9px;background:#fff7f6}
 
-#propertyError{display:none;margin-top:7px;font-size:9.8px;font-weight:700;color:#b3261e}#propertyError.visible{display:block}.kind-grid.invalid{padding:5px;border:1.5px solid #c9473f;border-radius:9px;background:#fff7f6}.size-grid.invalid{padding:5px;border:1.5px solid #c9473f;border-radius:999px;background:#fff7f6}
-.form-error{display:none;margin-top:2px;font-size:9.8px;font-weight:700;color:#b3261e}.form-error.visible{display:block}.check-grid.invalid{padding:5px;border:1.5px solid #c9473f;border-radius:9px;background:#fff7f6}.field input.invalid{border:1.5px solid #c9473f;background:#fff8f7;box-shadow:0 0 0 2px rgba(201,71,63,.08)}.field label.invalid-label,.field-title.invalid-label{color:#b3261e}
+.form-error{display:none;margin-top:2px;font-size:9.8px;font-weight:700;color:#b3261e}.form-error.visible{display:block}.field input.invalid{border:1.5px solid #c9473f;background:#fff8f7;box-shadow:0 0 0 2px rgba(201,71,63,.08)}.field label.invalid-label,.field-title.invalid-label{color:#b3261e}
 .mail-btn{width:100%;min-height:42px;border:0;border-radius:7px;background:var(--navy);color:#fff;font-size:12px;font-weight:800;cursor:pointer}.mail-note{margin:6px 0 0;text-align:center;font-size:9px;color:#7a8793;line-height:1.4}
 .contactline{display:flex;justify-content:space-between;gap:14px;padding:14px 22px;border-top:1px solid var(--line);background:#fbfcfd;color:#697886;font-size:10px}.contactline a{text-decoration:none;color:#455d71;font-weight:650}.contactline a:hover{text-decoration:underline;text-underline-offset:2px}
 @media(max-width:700px){
@@ -288,7 +294,13 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
   .kind-btn{padding:10px}.kind-btn strong{font-size:11.5px}.size-grid{gap:5px}.size-btn{min-height:36px;padding:7px 8px;font-size:9px}
   .price-panel{padding:10px}.price-grid{gap:6px}.price-card{padding:10px;min-height:104px}.price-card .label{font-size:9px;min-height:24px}.price-card .price{font-size:19px}.price-card .sub{font-size:8.3px}.price-card.existing .condition{font-size:8px}
   .service-row{padding:9px 10px}.service-row .text strong{font-size:10.1px}.service-row .service-price{font-size:17px}
-  .mail-section{margin-top:23px;padding-top:18px}.mail-section h2{font-size:18px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.check-grid{grid-template-columns:1fr}.address-builder{grid-template-columns:1fr}.suggestions{max-height:180px}input,textarea{font-size:16px}.contactline{padding:12px 15px;flex-direction:column;gap:3px}
+  .mail-section{margin-top:23px;padding-top:18px}.mail-section h2{font-size:18px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.address-builder{grid-template-columns:1fr}.suggestions{max-height:180px}input,textarea{font-size:16px}.contactline{padding:12px 15px;flex-direction:column;gap:3px}
+}
+@media(max-width:700px){
+  .order-row{grid-template-columns:minmax(0,1fr) 92px 36px;gap:8px 10px;padding:11px}
+  .order-info{grid-column:1/3;grid-row:1}.order-info strong{font-size:11px}.order-info span{font-size:9.5px}
+  .order-quantity{grid-column:1;grid-row:2;display:grid;gap:4px}.order-quantity input{width:68px;font-size:16px}.order-quantity label{font-size:10px}
+  .order-amount{grid-column:2;grid-row:2}.order-remove{grid-column:3;grid-row:1/3}
 }
 </style>
 </head>
@@ -336,32 +348,33 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
       <div class="size-block" id="sizeBlock">
         <div class="size-grid" id="sizeGrid"></div>
       </div>
-      <div id="propertyError">Choisissez le type de bien et sa superficie pour la prestation PEB.</div>
 
       <div class="price-panel" id="pricePanel" aria-live="polite">
         <p class="selection-title" id="selectionTitle"></p>
         <div class="price-grid">
-          <div class="price-card">
+          <div class="price-card tariff-choice" data-service="new" role="button" tabindex="0" aria-pressed="false">
             <div class="label">Nouveau certificat PEB</div>
             <div class="price-row"><span class="price" id="newPrice"></span><span class="sub">Prix TVAC</span></div>
           </div>
-          <div class="price-card existing">
+          <div class="price-card existing tariff-choice" data-service="existing" role="button" tabindex="0" aria-pressed="false">
             <div class="label">PEB sur base d'un PEB existant</div>
             <div class="price-row"><span class="price" id="existingPrice"></span><span class="sub">Prix TVAC</span></div>
             <span class="condition"><strong>Condition :</strong> le volume chauffé du bâtiment ne doit pas avoir changé depuis le dernier certificat PEB.</span>
           </div>
         </div>
 
-        <div class="service-row simulation">
+        <p class="tariff-hint">Cliquez sur un tarif pour l’ajouter à votre demande.</p>
+      </div>
+
+        <div class="service-row simulation tariff-choice" data-service="simulation" role="button" tabindex="0" aria-pressed="false">
           <div class="text"><strong>Simulation PEB après travaux envisagés</strong></div>
           <div class="service-price">50 € TVAC</div>
         </div>
 
-        <div class="service-row electric">
+        <div class="service-row electric tariff-choice" data-service="electric" role="button" tabindex="0" aria-pressed="false">
           <div class="text"><strong>Contrôle électrique - Partenariat avec <a href="https://www.certinergie.be/fr/" target="_blank" rel="noopener">Certinergie</a></strong></div>
           <div class="service-price">175 € TVAC</div>
         </div>
-      </div>
     </section>
 
     <section class="mail-section" id="demande" aria-labelledby="mail-title">
@@ -370,17 +383,12 @@ main{padding:23px 22px 30px}.topline{display:flex;justify-content:space-between;
 
       <form id="quoteForm" novalidate>
         <div class="form-grid">
-          <div class="field full"><label>Bien sélectionné</label><div class="selected" id="selectedProperty">Aucun bien sélectionné</div></div>
-
           <div class="field full">
-            <div class="field-title">Services souhaités *</div>
-            <div class="check-grid" id="services">
-              <label class="check-option"><input type="checkbox" name="service" value="Nouveau certificat PEB"><span>Nouveau certificat PEB</span></label>
-              <label class="check-option"><input type="checkbox" name="service" value="PEB sur base d'un PEB existant"><span>PEB sur base d'un PEB existant</span></label>
-              <label class="check-option"><input type="checkbox" name="service" value="Simulation PEB après travaux"><span>Simulation PEB après travaux</span></label>
-              <label class="check-option"><input type="checkbox" name="service" value="Contrôle électrique avec PV via Certinergie"><span>Contrôle électrique avec PV</span></label>
-            </div>
-            <div class="form-error" id="serviceError">Sélectionnez au moins un service.</div>
+            <div class="field-title" id="servicesTitle" tabindex="-1">Services souhaités *</div>
+            <div class="order-list" id="services"></div>
+            <div class="order-total" id="orderTotal" hidden><span>Total TVAC</span><strong id="orderTotalAmount"></strong></div>
+            <div class="visually-hidden" id="orderStatus" role="status" aria-live="polite"></div>
+            <div class="form-error" id="serviceError">Ajoutez au moins une prestation en cliquant sur un tarif.</div>
           </div>
 
           <div class="field full" id="addressField">
@@ -446,48 +454,104 @@ let currentKind='', selected=null;
 const sizeBlock=document.getElementById('sizeBlock');
 const sizeGrid=document.getElementById('sizeGrid');
 const pricePanel=document.getElementById('pricePanel');
-const selectedProperty=document.getElementById('selectedProperty');
+const requestedServices=new Map();
+const serviceDefinitions={
+  new:{label:'Nouveau certificat PEB',property:true,priceField:'newPrice'},
+  existing:{label:"PEB sur base d’un PEB existant",property:true,priceField:'existingPrice'},
+  simulation:{label:'Simulation PEB après travaux envisagés',price:50},
+  electric:{label:'Contrôle électrique avec PV — Certinergie',price:175}
+};
+const money=value=>new Intl.NumberFormat('fr-BE',{style:'currency',currency:'EUR',maximumFractionDigits:2,minimumFractionDigits:0}).format(value);
+const validQuantity=value=>Number.isSafeInteger(value)&&value>=1;
+const serviceKey=type=>serviceDefinitions[type].property?(selected?type+':'+selected.key:null):type;
 
-function clearPropertyError(){
-  document.getElementById('propertyError').classList.remove('visible');
-  document.querySelector('.kind-grid').classList.remove('invalid');
-  document.getElementById('sizeGrid').classList.remove('invalid');
+function clearServiceError(){
+  document.getElementById('serviceError').classList.remove('visible');
+  document.getElementById('services').classList.remove('invalid');
+  document.getElementById('servicesTitle').classList.remove('invalid-label');
 }
-
-function chooseKind(kind, btn){
-  currentKind=kind;
-  selected=null;
-  document.querySelector('.kind-grid').classList.remove('invalid');
-  if(document.getElementById('propertyError').classList.contains('visible')){
-    document.getElementById('sizeGrid').classList.add('invalid');
-  }
+function syncTariffSelection(){
+  document.querySelectorAll('.tariff-choice').forEach(card=>{
+    const active=requestedServices.has(serviceKey(card.dataset.service));
+    card.classList.toggle('is-selected',active);
+    card.setAttribute('aria-pressed',String(active));
+  });
+}
+function chooseKind(kind,btn){
+  currentKind=kind;selected=null;
   document.querySelectorAll('.kind-btn').forEach(b=>b.classList.toggle('active',b===btn));
   sizeGrid.innerHTML='';
   catalog[kind].sizes.forEach(item=>{
-    const b=document.createElement('button');
-    b.type='button';
-    b.className='size-btn';
-    b.textContent=item.label;
-    b.addEventListener('click',()=>chooseSize(item,b));
-    sizeGrid.appendChild(b);
+    const b=document.createElement('button');b.type='button';b.className='size-btn';b.textContent=item.label;
+    b.addEventListener('click',()=>chooseSize(item,b));sizeGrid.appendChild(b);
   });
-  sizeBlock.classList.add('visible');
-  pricePanel.classList.remove('visible');
-  selectedProperty.textContent=catalog[kind].label+' — superficie à sélectionner';
+  sizeBlock.classList.add('visible');pricePanel.classList.remove('visible');syncTariffSelection();
 }
-
-function chooseSize(item, btn){
+function chooseSize(item,btn){
   selected=item;
-  clearPropertyError();
   document.querySelectorAll('.size-btn').forEach(b=>b.classList.toggle('active',b===btn));
   document.getElementById('selectionTitle').textContent=item.title;
   document.getElementById('newPrice').textContent=item.newPrice;
   document.getElementById('existingPrice').textContent=item.existingPrice;
-  selectedProperty.textContent=item.title;
-  pricePanel.classList.add('visible');
+  pricePanel.classList.add('visible');syncTariffSelection();
 }
-
+function orderTotal(){return [...requestedServices.values()].reduce((sum,row)=>sum+(validQuantity(row.quantity)?row.quantity*row.price:0),0);}
+function refreshOrderAmounts(){
+  let invalid=false;
+  requestedServices.forEach(row=>{
+    const valid=validQuantity(row.quantity);invalid=invalid||!valid;
+    document.getElementById('amount-'+row.id).textContent=valid?money(row.quantity*row.price):'—';
+  });
+  document.getElementById('orderTotal').hidden=!requestedServices.size;
+  document.getElementById('orderTotalAmount').textContent=invalid?'—':money(orderTotal());
+}
+function removeService(id){
+  const row=requestedServices.get(id);if(!row)return;
+  requestedServices.delete(id);renderOrder();syncTariffSelection();clearServiceError();
+  document.getElementById('orderStatus').textContent=row.label+' retiré de la demande.';
+}
+function renderOrder(){
+  const list=document.getElementById('services');list.replaceChildren();
+  if(!requestedServices.size){
+    const empty=document.createElement('p');empty.className='order-empty';empty.textContent='Votre sélection apparaîtra ici. Cliquez sur les tarifs ci-dessus pour ajouter vos prestations.';list.appendChild(empty);
+  }
+  requestedServices.forEach(row=>{
+    const line=document.createElement('div');line.className='order-row';line.dataset.id=row.id;
+    const info=document.createElement('div');info.className='order-info';
+    const title=document.createElement('strong');title.textContent=row.label;
+    const detail=document.createElement('span');detail.textContent=(row.property?row.property+' · ':'')+money(row.price)+' TVAC / unité';info.append(title,detail);
+    const quantity=document.createElement('div');quantity.className='order-quantity';
+    const label=document.createElement('label');label.htmlFor='qty-'+row.id;label.textContent='Quantité';
+    const input=document.createElement('input');input.id=label.htmlFor;input.type='number';input.min='1';input.step='1';input.inputMode='numeric';input.value=row.quantity??'';
+    input.classList.toggle('invalid',!validQuantity(row.quantity));input.setAttribute('aria-invalid',String(!validQuantity(row.quantity)));
+    input.setAttribute('aria-label','Quantité : '+row.label+(row.property?' — '+row.property:''));input.setAttribute('aria-describedby','serviceError');
+    input.addEventListener('input',()=>{
+      row.quantity=input.value===''?null:Number(input.value);
+      const valid=validQuantity(row.quantity);input.classList.toggle('invalid',!valid);input.setAttribute('aria-invalid',String(!valid));
+      if(valid)clearServiceError();refreshOrderAmounts();
+    });quantity.append(label,input);
+    const amount=document.createElement('div');amount.className='order-amount';
+    const value=document.createElement('strong');value.id='amount-'+row.id;
+    const suffix=document.createElement('small');suffix.textContent='TVAC';amount.append(value,suffix);
+    const remove=document.createElement('button');remove.type='button';remove.className='order-remove';remove.title='Supprimer cette prestation';remove.setAttribute('aria-label','Supprimer '+row.label+(row.property?' — '+row.property:''));
+    remove.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M9 6V4h6v2M5 6l1 15h12l1-15M10 10v7M14 10v7"/></svg>';
+    remove.addEventListener('click',()=>{removeService(row.id);document.getElementById('servicesTitle').focus({preventScroll:true});});
+    line.append(info,quantity,amount,remove);list.appendChild(line);
+  });refreshOrderAmounts();
+}
+function toggleService(type){
+  const definition=serviceDefinitions[type],id=serviceKey(type);if(!id)return;
+  if(requestedServices.has(id)){removeService(id);return;}
+  const row={id,type,label:definition.label,property:definition.property?selected.title:'',price:definition.property?parseFloat(selected[definition.priceField]):definition.price,quantity:1};
+  requestedServices.set(id,row);renderOrder();syncTariffSelection();clearServiceError();
+  document.getElementById('orderStatus').textContent=row.label+' ajouté à la demande.';
+}
 document.querySelectorAll('.kind-btn').forEach(btn=>btn.addEventListener('click',()=>chooseKind(btn.dataset.kind,btn)));
+document.querySelectorAll('.tariff-choice').forEach(card=>{
+  card.addEventListener('click',event=>{if(event.target.closest('a'))return;toggleService(card.dataset.service);});
+  card.addEventListener('keydown',event=>{if(event.target!==card)return;if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleService(card.dataset.service);}});
+});
+renderOrder();
 
 const ICAR_ENDPOINT='https://geoservices.wallonie.be/geocodeWS/geolist';
 const addressState={city:null,street:null,house:null,zone:null,formatted:''};
@@ -685,56 +749,28 @@ document.addEventListener('click',e=>{
   if(!e.target.closest('.address-step')) closeAllSuggestions();
 });
 
-document.querySelectorAll('input[name="service"]').forEach(cb=>cb.addEventListener('change',()=>{
-  if(document.querySelector('input[name="service"]:checked')){
-    document.getElementById('serviceError').classList.remove('visible');
-    document.getElementById('services').classList.remove('invalid');
-    document.querySelector('.field-title').classList.remove('invalid-label');
-  }
-  const checkedNow=[...document.querySelectorAll('input[name="service"]:checked')].map(el=>el.value);
-  const stillNeedsProperty=checkedNow.includes('Nouveau certificat PEB') || checkedNow.includes("PEB sur base d'un PEB existant");
-  if(!stillNeedsProperty) clearPropertyError();
-}));
-
 document.getElementById('quoteForm').addEventListener('submit',function(e){
   e.preventDefault();
   const adresse=addressMode==='manual' ? manualAddressInput.value.trim() : buildTypedIcarAddress();
-  const checked=[...document.querySelectorAll('input[name="service"]:checked')].map(el=>el.value);
+  const rows=[...requestedServices.values()];
   const serviceError=document.getElementById('serviceError');
   const servicesBox=document.getElementById('services');
-  const servicesTitle=document.querySelector('.field-title');
+  const servicesTitle=document.getElementById('servicesTitle');
   const addressError=document.getElementById('addressError');
   const addressLabel=document.getElementById('addressLabel');
 
   let firstInvalid=null;
-  const needsProperty=checked.includes('Nouveau certificat PEB') || checked.includes("PEB sur base d'un PEB existant");
-  const propertyError=document.getElementById('propertyError');
-  const kindGrid=document.querySelector('.kind-grid');
-
-  if(needsProperty && !selected){
-    propertyError.classList.add('visible');
-    if(!currentKind){
-      kindGrid.classList.add('invalid');
-      document.getElementById('sizeGrid').classList.remove('invalid');
-      firstInvalid=kindGrid;
-    } else {
-      kindGrid.classList.remove('invalid');
-      document.getElementById('sizeGrid').classList.add('invalid');
-      firstInvalid=document.getElementById('sizeGrid');
-    }
-  } else {
-    clearPropertyError();
-  }
-
-  if(!checked.length){
-    serviceError.classList.add('visible');
-    servicesBox.classList.add('invalid');
-    servicesTitle.classList.add('invalid-label');
-    if(!firstInvalid) firstInvalid=servicesBox;
-  } else {
-    serviceError.classList.remove('visible');
-    servicesBox.classList.remove('invalid');
-    servicesTitle.classList.remove('invalid-label');
+  if(!rows.length){
+    serviceError.textContent='Ajoutez au moins une prestation en cliquant sur un tarif.';
+    serviceError.classList.add('visible');servicesBox.classList.add('invalid');servicesTitle.classList.add('invalid-label');firstInvalid=servicesBox;
+  }else{
+    clearServiceError();
+    rows.forEach(row=>{
+      const input=document.getElementById('qty-'+row.id),valid=validQuantity(row.quantity);
+      input.classList.toggle('invalid',!valid);input.setAttribute('aria-invalid',String(!valid));
+      if(!valid&&!firstInvalid)firstInvalid=input;
+    });
+    if(firstInvalid){serviceError.textContent='Indiquez une quantité entière d’au moins 1 pour chaque prestation.';serviceError.classList.add('visible');}
   }
 
   if(!adresse){
@@ -754,37 +790,24 @@ document.getElementById('quoteForm').addEventListener('submit',function(e){
 
   if(firstInvalid){
     firstInvalid.scrollIntoView({behavior:'smooth',block:'center'});
-    if(firstInvalid===manualAddressInput) setTimeout(()=>manualAddressInput.focus({preventScroll:true}),250);
+    if(firstInvalid.matches('input')) setTimeout(()=>firstInvalid.focus({preventScroll:true}),250);
     return;
   }
 
   const nom=document.getElementById('nom').value.trim();
   const telephone=document.getElementById('telephone').value.trim();
   const precision=document.getElementById('message').value.trim();
-  const bien=selected?selected.title:(currentKind?catalog[currentKind].label+' — superficie non précisée':'Non précisé');
-
-  const lines=[];
-  checked.forEach(service=>{
-    if(service==='Nouveau certificat PEB'){
-      lines.push(`🏠 Nouveau certificat PEB — ${selected ? selected.newPrice+' TVAC' : 'tarif à déterminer selon le type et la superficie du bien'}`);
-    } else if(service==="PEB sur base d'un PEB existant"){
-      lines.push(`📄 PEB sur base d'un PEB existant — ${selected ? selected.existingPrice+' TVAC' : 'tarif à déterminer selon le type et la superficie du bien'}`);
-      lines.push('   ↳ Condition : le volume chauffé du bâtiment n’a pas changé depuis le dernier certificat PEB.');
-    } else if(service==='Simulation PEB après travaux'){
-      lines.push('📊 Simulation PEB après travaux — 50 € TVAC');
-    } else if(service==='Contrôle électrique avec PV via Certinergie'){
-      lines.push('⚡ Contrôle électrique — partenariat Certinergie — 175 € TVAC');
-    }
-  });
+  const lines=rows.map(row=>`${row.quantity} × ${row.label}${row.property?' — '+row.property:''} — ${money(row.price)} TVAC / unité — ${money(row.quantity*row.price)} TVAC`);
+  if(rows.some(row=>row.type==='existing'))lines.push('Condition pour le PEB sur base d’un existant : le volume chauffé du bâtiment n’a pas changé depuis le dernier certificat PEB.');
+  lines.push('',`Total des prestations : ${money(orderTotal())} TVAC`);
 
   const subject=`Demande de disponibilités PEB – ${adresse}`;
   const body=[
     'Bonjour Monsieur Deglin,',
     '',
-    'Je souhaiterais connaître vos prochaines disponibilités pour le bien suivant :',
+    'Je souhaiterais connaître vos prochaines disponibilités pour les prestations suivantes :',
     '',
     `📍 Adresse : ${adresse}`,
-    `🏡 Bien : ${bien}`,
     '',
     'Prestations souhaitées :',
     ...lines,
